@@ -1,10 +1,11 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(PlayerObjectSetup))]
 
-public class PlayerMotor : MonoBehaviour
+public class PlayerMotor : NetworkBehaviour
 {
     [SerializeField] private Camera cam;
     private Vector3 velocity = Vector3.zero;
@@ -16,7 +17,6 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cam = GetComponent<Camera>();
     }
 
     public void Move(Vector3 _velocity)
@@ -26,7 +26,8 @@ public class PlayerMotor : MonoBehaviour
 
     public void Rotate(Vector3 _rotation)
     {
-        rotation = _rotation;
+        if (hasAuthority) rotation = _rotation;
+        else rotation = Vector3.zero;
     }
 
     public void RotateCamera(Vector3 _camRot)
@@ -35,7 +36,8 @@ public class PlayerMotor : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    { 
+        if (!hasAuthority) return;
         PerfomeMovement();
         PerformeRotation();
     }
@@ -52,13 +54,12 @@ public class PlayerMotor : MonoBehaviour
     {
         if (rotation != Vector3.zero)
         {
+            Debug.Log("turning");
             rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
         }
 
-        if (cam != null)
-        {
-            Debug.Log("Camera rotating");
-            cam.transform.Rotate(-camRot);
-        }
+        Debug.Log("Camera rotating");
+        cam.transform.Rotate(-camRot);
+        
     }
 }

@@ -57,6 +57,7 @@ public class PlayerMotor : MonoBehaviour
 
         if (cam != null)
         {
+            Debug.Log("Camera rotating");
             cam.transform.Rotate(-camRot);
         }
     }

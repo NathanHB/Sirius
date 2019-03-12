@@ -7,16 +7,24 @@ public class PlayerSetup : NetworkBehaviour
     //private Behaviour[] componenentsToDisable;
    
     private Camera sceneCamera;
+    [SerializeField]private Camera playerCam ;
     
     // Start is called before the first frame update
     void Start()
     {
-        // if i'm not the local player i do not have control over certain things
-        // mainly the control of the others player and camera
-        if(hasAuthority) 
+        sceneCamera = Camera.main;
+        if (sceneCamera != null) sceneCamera.gameObject.SetActive(false);
+    }
+
+    public void Update()
+    {
+        if(!hasAuthority)
         {
-            sceneCamera = Camera.main;
-            if (sceneCamera != null) sceneCamera.gameObject.SetActive(false);
+            if (playerCam != null) playerCam.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (playerCam != null) playerCam.gameObject.SetActive(true);
         }
     }
 

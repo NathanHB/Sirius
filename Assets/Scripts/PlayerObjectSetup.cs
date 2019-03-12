@@ -11,6 +11,7 @@ public class PlayerObjectSetup : NetworkBehaviour
         if (!isLocalPlayer) return;
 
         Debug.Log("spawning my thing");
+        Debug.Log("Local player: " + isLocalPlayer);
         CmdSpawnUnit();
     }
 

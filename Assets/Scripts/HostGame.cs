@@ -12,16 +12,16 @@ public class HostGame : MonoBehaviour
     private NetworkManager _networkManager;
     private string password = "";
 
-    public void SetRoomName(string _roomName)
+    public void SetRoomName(string roomName)
     {
-        roomName = _roomName;
+        this.roomName = roomName;
     }
 
     public void SetPassword(string password)
     {
         this.password = password;
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
         _networkManager = NetworkManager.singleton;
@@ -30,7 +30,6 @@ public class HostGame : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     public void CreateRoom()
     {
         if(_networkManager.matchMaker == null) _networkManager.StartMatchMaker();

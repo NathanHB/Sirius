@@ -7,15 +7,10 @@ using UnityEngine.UI;
 public class RoomListItem : MonoBehaviour
 {
     private MatchInfoSnapshot match;
-
     [SerializeField] private Text roomListText;
-
     public delegate void JoinRoomDelegate(MatchInfoSnapshot match);
-
     private JoinRoomDelegate _JoinRoomDelegate;
     
-    
-    // Start is called before the first frame update
     public void Setup(MatchInfoSnapshot match, JoinRoomDelegate _joinRoom)
     {
         this.match = match;
@@ -28,11 +23,5 @@ public class RoomListItem : MonoBehaviour
     public void JoinGame()
     {
         _JoinRoomDelegate.Invoke(match);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

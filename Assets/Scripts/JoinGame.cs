@@ -14,7 +14,6 @@ public class JoinGame : MonoBehaviour
     [SerializeField] private GameObject roomListItemPrefab;
     [SerializeField] private Transform scrollView; 
     
-    // Start is called before the first frame update
     void Start()
     {
         _networkManager = NetworkManager.singleton;
@@ -73,10 +72,5 @@ public class JoinGame : MonoBehaviour
         _networkManager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, _networkManager.OnMatchJoined);
         ClearRooms();
         status.text = "";
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

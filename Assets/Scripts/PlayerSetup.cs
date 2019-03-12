@@ -3,13 +3,9 @@ using UnityEngine.Networking;
 
 public class PlayerSetup : NetworkBehaviour
 {
-    //[SerializeField]
-    //private Behaviour[] componenentsToDisable;
-   
     private Camera sceneCamera;
     [SerializeField]private Camera playerCam ;
     
-    // Start is called before the first frame update
     void Start()
     {
         sceneCamera = Camera.main;

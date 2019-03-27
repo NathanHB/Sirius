@@ -17,6 +17,7 @@ public class PlayerMotor : NetworkBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;//Prevent the damn rb to spin after colliding a wall
     }
 
     public void Move(Vector3 _velocity)
@@ -38,11 +39,11 @@ public class PlayerMotor : NetworkBehaviour
     void FixedUpdate()
     { 
         if (!hasAuthority) return;
-        PerfomeMovement();
-        PerformeRotation();
+        PerformMovement();
+        PerformRotation();
     }
 
-    void PerfomeMovement()
+    void PerformMovement()
     {
         if (velocity != Vector3.zero)
         {
@@ -50,15 +51,15 @@ public class PlayerMotor : NetworkBehaviour
         }
     }
 
-    void PerformeRotation()
+    void PerformRotation()
     {
         if (rotation != Vector3.zero)
-        {
-            Debug.Log("turning");
+        {   
+            //Debug.Log("turning");
             rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
         }
 
-        Debug.Log("Camera rotating");
+       // Debug.Log("Camera rotating");
         cam.transform.Rotate(-camRot);
         
     }

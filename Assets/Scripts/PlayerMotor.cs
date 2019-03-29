@@ -63,4 +63,11 @@ public class PlayerMotor : NetworkBehaviour
         cam.transform.Rotate(-camRot);
         
     }
+
+
+    public void jump()
+    {
+        Vector3 vect = new Vector3 (0,10,0);        
+        rb.AddForce(vect*5f, ForceMode.Impulse);
+    }
 }

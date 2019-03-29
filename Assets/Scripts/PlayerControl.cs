@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -50,62 +51,57 @@ public class PlayerControl : NetworkBehaviour
         _motor.RotateCamera(yrotation);
 
         doorInteract();
+        jump();
     }
 
-
-
+    
     private void doorInteract()
     {
         RaycastHit hit;
         int maxDistance = 5;
-        bool isMoving = false;
             
          if(Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
         {
+
             if (hit.collider.gameObject.CompareTag("door"))
             {
-               
-                    
-                if (Input.GetKey(KeyCode.E) && !isMoving)
+                if (Input.GetKey(KeyCode.E))
                 {
-                    isMoving = true;
-                 StartCoroutine(RotateAround(hit, Vector3.up, 90.0f, 1.0f ));
-                 //hit.transform.RotateAround(transform.position, Vector3.up, 20 * Time.deltaTime);
-                 hit.transform.tag = "openedDoor";
-                 isMoving = false;
+                GameObject hitDoor = hit.collider.gameObject;
+                GameObject doorToMove = GameObject.Find("DoorContent");
+                
+                Animator anim = doorToMove.GetComponent<Animator>();
+                anim.SetTrigger("openDoor"); 
+                hitDoor.tag = "openedDoor";
+
                 }
             }
             else if (hit.collider.gameObject.CompareTag("openedDoor"))
             {
-                if (Input.GetKey(KeyCode.E) && !isMoving)
+                if (Input.GetKey(KeyCode.E))
                 {
-                    isMoving = true;
-                    StartCoroutine(RotateAround(hit, Vector3.up, -90.0f, 1.0f));
-                    //hit.transform.RotateAround(transform.position, Vector3.up, 20 * Time.deltaTime);
-                    hit.transform.tag = "door";
-                    isMoving = false;
+                    GameObject hitDoor = hit.collider.gameObject;
+                    GameObject doorToMove = GameObject.Find("DoorContent");
+                    
+                    Animator anim = doorToMove.GetComponent<Animator>();
+                    anim.SetTrigger("closeDoor");
+                    hitDoor.tag = "door";
+
                 }
             }
             
         }
     }
-    
-    IEnumerator RotateAround(RaycastHit objectToMove ,Vector3 axis, float angle, float duration )
-    {
-        
-        float elapsed = 0.0f;
-        float rotated = 0.0f;
-        while( elapsed < duration )
-        {
-            float step = angle / duration * Time.deltaTime;
-            objectToMove.transform.Rotate(Vector3.up, step);
-           // objectToMove.transform.RotateAround(transform.position, axis, step );
-            elapsed += Time.deltaTime;
-            rotated += step;
-            yield return null;
-        }
-        objectToMove.transform.Rotate(Vector3.up, angle-rotated);
 
-        //objectToMove.transform.RotateAround(transform.position, axis, angle - rotated );
+
+
+    private void jump()
+    {
+        if (Input.GetKey(KeyCode.Space))
+            _motor.jump();
+        
     }
+
+
+
 }

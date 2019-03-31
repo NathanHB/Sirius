@@ -72,6 +72,7 @@ public class PlayerControl : NetworkBehaviour
              int maxDistance = 5;
              Debug.DrawRay(transform.position+new Vector3(0,2f,0), transform.TransformDirection(Vector3.forward), Color.green);
 
+
                 
               if(Physics.Raycast(transform.position+new Vector3(0,2f,0), transform.TransformDirection(Vector3.forward), out hit, maxDistance))
              {

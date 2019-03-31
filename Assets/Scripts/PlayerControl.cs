@@ -14,11 +14,12 @@ public class PlayerControl : NetworkBehaviour
     [SerializeField] private float cameraSensitivity = 3;
 
     private PlayerMotor _motor;
+    private float DisstanceToTheGround;
 
     void Start()
     {
         _motor = GetComponent<PlayerMotor>();
-    }
+     }
 
     public void Update()
     {
@@ -50,56 +51,77 @@ public class PlayerControl : NetworkBehaviour
         Vector3 yrotation = new Vector3(yrot, 0, 0) * cameraSensitivity;
         _motor.RotateCamera(yrotation);
 
-        doorInteract();
-        jump();
+        generalControls();
     }
 
+
+    void generalControls()
+    {
+        doorInteract();
+        run();
+
+        if (Input.GetKey(KeyCode.Space))
+            jump();
+    }
+    
+    
     
     private void doorInteract()
     {
-        RaycastHit hit;
-        int maxDistance = 5;
-            
-         if(Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
-        {
+             RaycastHit hit;
+             int maxDistance = 5;
+             Debug.DrawRay(transform.position+new Vector3(0,2f,0), transform.TransformDirection(Vector3.forward), Color.green);
 
-            if (hit.collider.gameObject.CompareTag("door"))
-            {
-                if (Input.GetKey(KeyCode.E))
-                {
-                GameObject hitDoor = hit.collider.gameObject;
-                GameObject doorToMove = GameObject.Find("DoorContent");
                 
-                Animator anim = doorToMove.GetComponent<Animator>();
-                anim.SetTrigger("openDoor"); 
-                hitDoor.tag = "openedDoor";
+              if(Physics.Raycast(transform.position+new Vector3(0,2f,0), transform.TransformDirection(Vector3.forward), out hit, maxDistance))
+             {
 
-                }
-            }
-            else if (hit.collider.gameObject.CompareTag("openedDoor"))
-            {
-                if (Input.GetKey(KeyCode.E))
-                {
-                    GameObject hitDoor = hit.collider.gameObject;
-                    GameObject doorToMove = GameObject.Find("DoorContent");
-                    
-                    Animator anim = doorToMove.GetComponent<Animator>();
-                    anim.SetTrigger("closeDoor");
-                    hitDoor.tag = "door";
-
-                }
-            }
-            
-        }
+                 if (hit.collider.gameObject.CompareTag("door"))
+                 {
+                     if (Input.GetKey(KeyCode.E))
+                     {   
+                     Debug.Log(hit.collider.gameObject.name);
+   
+                     GameObject hitDoor = GameObject.Find(hit.transform.name);
+                     GameObject doorToMove = GameObject.Find("DoorContent");
+                     
+                     Animator anim = doorToMove.GetComponent<Animator>();
+                     anim.Play("openDoor");
+                     //anim.SetTrigger("openDoor"); 
+                     hitDoor.tag = "openedDoor";
+     
+                     }
+                 }
+                 else if (hit.collider.gameObject.CompareTag("openedDoor"))
+                 {
+                     if (Input.GetKey(KeyCode.E))
+                     {
+                         GameObject hitDoor = hit.collider.gameObject;
+                         GameObject doorToMove = GameObject.Find("DoorContent");
+                         
+                         Animator anim = doorToMove.GetComponent<Animator>();
+                         anim.Play("closeDoor");
+                         //anim.SetTrigger("closeDoor");
+                         hitDoor.tag = "door";
+                     }
+                 }
+                 
+             }
     }
 
 
 
     private void jump()
     {
-        if (Input.GetKey(KeyCode.Space))
-            _motor.jump();
-        
+           _motor.jump(); 
+    }
+
+    void run()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            speed = 12;
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            speed = 5;
     }
 
 

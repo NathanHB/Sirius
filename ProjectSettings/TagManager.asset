@@ -7,6 +7,7 @@ TagManager:
   - door
   - openedDoor
   - openingDoor
+  - player
   layers:
   - Default
   - TransparentFX

@@ -62,7 +62,7 @@ public class PlayerControl : NetworkBehaviour
             
          if(Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
         {
-
+            Debug.Log("ANY");
             if (hit.collider.gameObject.CompareTag("door"))
             {
                 if (Input.GetKey(KeyCode.E))

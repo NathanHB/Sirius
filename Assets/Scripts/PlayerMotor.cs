@@ -67,8 +67,11 @@ public class PlayerMotor : NetworkBehaviour
 
     public void jump()
     {
-            Vector3 vect = new Vector3 (0,10,0);        
-            rb.AddForce(vect*5, ForceMode.Impulse);
+
+            rb.AddForce(Vector3.up*500, ForceMode.Impulse);
 
     }
+
+
+
 }

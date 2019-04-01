@@ -14,7 +14,8 @@ public class PlayerControl : NetworkBehaviour
     [SerializeField] private float cameraSensitivity = 3;
 
     private PlayerMotor _motor;
-    private float DisstanceToTheGround;
+
+    
 
     void Start()
     {
@@ -50,63 +51,24 @@ public class PlayerControl : NetworkBehaviour
         float yrot = Input.GetAxisRaw("Mouse Y");
         Vector3 yrotation = new Vector3(yrot, 0, 0) * cameraSensitivity;
         _motor.RotateCamera(yrotation);
-
+        
         generalControls();
     }
 
 
     void generalControls()
     {
-        doorInteract();
         run();
 
-        if (Input.GetKey(KeyCode.Space))
+        Debug.DrawRay(transform.position, Vector3.down+new Vector3(0,2,0), Color.red);
+        Debug.Log(Physics.Raycast(transform.position, Vector3.down+new Vector3(0,2,0), 0.1f, 1<<9));
+        
+        if (Physics.Raycast(transform.position, Vector3.down+new Vector3(0,2,0), 0.1f, 1<<9 ) && Input.GetKeyDown(KeyCode.Space))
+        {
             jump();
+        }
     }
-    
-    
-    
-    private void doorInteract()
-    {
-             RaycastHit hit;
-             int maxDistance = 5;
-             Debug.DrawRay(transform.position+new Vector3(0,2f,0), transform.TransformDirection(Vector3.forward), Color.green);
 
-
-                
-              if(Physics.Raycast(transform.position+new Vector3(0,2f,0), transform.TransformDirection(Vector3.forward), out hit, maxDistance))
-             {
-
-                 if (hit.collider.gameObject.CompareTag("door"))
-                 {
-                     if (Input.GetKey(KeyCode.E))
-                     {   
-                     Debug.Log(hit.collider.gameObject.name);
-                     
-                     GameObject hitDoor = hit.collider.gameObject;
-
-                     
-                     Animator anim = hitDoor.GetComponent<Animator>();
-                     anim.SetTrigger("openDoor"); 
-                     hit.collider.gameObject.tag = "openedDoor";
-     
-                     }
-                 }
-                 else if (hit.collider.gameObject.CompareTag("openedDoor"))
-                 {
-                     if (Input.GetKey(KeyCode.E))
-                     {
-                         GameObject hitDoor = hit.collider.gameObject;
-                         
-                         Animator anim = hitDoor.GetComponent<Animator>();
-
-                         anim.SetTrigger("closeDoor");
-                         hit.collider.gameObject.tag = "door";
-                     }
-                 }
-                 
-             }
-    }
 
 
 

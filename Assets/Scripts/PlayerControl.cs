@@ -83,14 +83,11 @@ public class PlayerControl : NetworkBehaviour
                      {   
                      Debug.Log(hit.collider.gameObject.name);
                      
+                     GameObject hitDoor = hit.collider.gameObject;
+
                      
-   
-                     GameObject hitDoor = GameObject.Find(hit.transform.name);
-                     GameObject doorToMove = GameObject.Find("DoorContent");
-                     
-                     Animator anim = doorToMove.GetComponent<Animator>();
-                     anim.Play("openDoor");
-                     //anim.SetTrigger("openDoor"); 
+                     Animator anim = hitDoor.GetComponent<Animator>();
+                     anim.SetTrigger("openDoor"); 
                      hit.collider.gameObject.tag = "openedDoor";
      
                      }
@@ -100,11 +97,10 @@ public class PlayerControl : NetworkBehaviour
                      if (Input.GetKey(KeyCode.E))
                      {
                          GameObject hitDoor = hit.collider.gameObject;
-                         GameObject doorToMove = GameObject.Find("DoorContent");
                          
-                         Animator anim = doorToMove.GetComponent<Animator>();
-                         anim.Play("closeDoor");
-                         //anim.SetTrigger("closeDoor");
+                         Animator anim = hitDoor.GetComponent<Animator>();
+
+                         anim.SetTrigger("closeDoor");
                          hit.collider.gameObject.tag = "door";
                      }
                  }

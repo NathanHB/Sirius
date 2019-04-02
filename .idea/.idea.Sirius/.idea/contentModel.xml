@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Joseph\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Joseph\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Sirius.1744195104.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Joseph\Desktop\SIRIUS\siriusNetwork\SIRIUS" t="IncludeRecursive">
+    <e p="C:\Users\hbuis\.Rider2018.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\hbuis\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\hbuis\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Sirius.-577993358.00" t="ExcludeRecursive" />
+    <e p="C:\Users\hbuis\Desktop\projetS2\sirius-multi\SIRIUS" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -35,6 +36,7 @@
           <e p="PlayerObjectSetup.cs" t="Include" />
           <e p="PlayerSetup.cs" t="Include" />
           <e p="RoomListItem.cs" t="Include" />
+          <e p="SelectManager.cs" t="Include" />
         </e>
         <e p="Standard Assets" t="Include">
           <e p="2D" t="Include">

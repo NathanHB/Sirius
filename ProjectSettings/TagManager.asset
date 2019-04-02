@@ -7,6 +7,8 @@ TagManager:
   - door
   - player
   - gound
+  - Selectable
+  - Werewolf
   layers:
   - Default
   - TransparentFX

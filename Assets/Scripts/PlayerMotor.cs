@@ -13,6 +13,8 @@ public class PlayerMotor : NetworkBehaviour
     private Vector3 camRot = Vector3.zero;
 
     private Rigidbody rb;
+    private float distToGround;
+
 
     void Start()
     {

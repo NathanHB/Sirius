@@ -19,11 +19,13 @@ public class PlayerControl : NetworkBehaviour
 
     void Start()
     {
+        
         _motor = GetComponent<PlayerMotor>();
-     }
+    }
 
     public void Update()
     {
+        
         if (!hasAuthority) return;
 
         //Debug.Log("I have authority");
@@ -59,13 +61,14 @@ public class PlayerControl : NetworkBehaviour
     void generalControls()
     {
         run();
+        
 
-        Debug.DrawRay(transform.position, -transform.up, Color.red);
+        Debug.DrawRay(transform.position+new Vector3(0,0.1f,0), -Vector3.up, Color.red);
         //Debug.Log(Physics.Raycast(transform.position, Vector3.down+new Vector3(0,2,0), 0.1f, 1<<9));
         
-        if (Physics.Raycast(transform.position, -transform.up+new Vector3(0,2,0), 0.1f, 1<<9 ) && Input.GetKeyDown(KeyCode.Space))
+        if (Physics.Raycast(transform.position+new Vector3(0,0.1f,0), -Vector3.up, 0.5f) && Input.GetKeyDown(KeyCode.Space))
         {
-            jump();
+          jump();
         }
     }
 

@@ -8,6 +8,8 @@ public class SelectManager : MonoBehaviour
     [SerializeField] private string selectableTag = "Werewolf";
     [SerializeField] private Material other;
     [SerializeField] private Material defaultMaterial;
+    [SerializeField] private Camera cam;
+
 
     private Transform _selection;
 
@@ -22,7 +24,7 @@ public class SelectManager : MonoBehaviour
         }
             
             
-        var ray = Camera.current.ScreenPointToRay(Input.mousePosition);
+        var ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))

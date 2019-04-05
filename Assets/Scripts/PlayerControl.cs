@@ -60,10 +60,10 @@ public class PlayerControl : NetworkBehaviour
     {
         run();
 
-        Debug.DrawRay(transform.position, Vector3.down+new Vector3(0,2,0), Color.red);
-        Debug.Log(Physics.Raycast(transform.position, Vector3.down+new Vector3(0,2,0), 0.1f, 1<<9));
+        Debug.DrawRay(transform.position, -transform.up, Color.red);
+        //Debug.Log(Physics.Raycast(transform.position, Vector3.down+new Vector3(0,2,0), 0.1f, 1<<9));
         
-        if (Physics.Raycast(transform.position, Vector3.down+new Vector3(0,2,0), 0.1f, 1<<9 ) && Input.GetKeyDown(KeyCode.Space))
+        if (Physics.Raycast(transform.position, -transform.up+new Vector3(0,2,0), 0.1f, 1<<9 ) && Input.GetKeyDown(KeyCode.Space))
         {
             jump();
         }
@@ -84,6 +84,8 @@ public class PlayerControl : NetworkBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
             speed = 5;
     }
+
+
 
 
 

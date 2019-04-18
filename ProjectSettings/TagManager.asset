@@ -9,6 +9,7 @@ TagManager:
   - gound
   - Selectable
   - Werewolf
+  - Graphics
   layers:
   - Default
   - TransparentFX

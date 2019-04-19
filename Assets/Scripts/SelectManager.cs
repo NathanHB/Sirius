@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using cakeslice;
 using UnityEngine;
+using UnityStandardAssets.Utility;
 
 public class SelectManager : MonoBehaviour
 {
@@ -12,11 +13,13 @@ public class SelectManager : MonoBehaviour
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Camera cam;
 
-
     private Transform _selection;
 
+    private List<Transform> lookedObjects = new List<Transform>();
+    
     void Update()
     {
+
         
         if (_selection != null)
         {
@@ -31,6 +34,16 @@ public class SelectManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            if (lookedObjects.Count>0)
+            {
+                foreach (var elt in lookedObjects)
+                {
+                    elt.GetComponent<Outline>().eraseRenderer=true;
+                }
+            }
+            
+
+            lookedObjects.Clear();
 
             var select = hit.transform;
             if (select.CompareTag(selectableTagWerewolf))
@@ -45,7 +58,12 @@ public class SelectManager : MonoBehaviour
             }
             else if (select.CompareTag(selectableTagItem))
             {
-                
+                if (select.name!="")
+                {
+                    lookedObjects.Add(select);
+                    select.GetComponent<Outline>().eraseRenderer=false;
+                    
+                }
   
                 
             }

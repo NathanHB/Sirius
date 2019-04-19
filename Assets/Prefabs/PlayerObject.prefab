@@ -518,6 +518,7 @@ MonoBehaviour:
   other: {fileID: 2100000, guid: 6e1d36c4bbd37d54f9ea183e4f5fd656, type: 2}
   defaultMaterial: {fileID: 2100000, guid: a24037aa2dae5b145b048dcaf948032a, type: 2}
   cam: {fileID: 3735964180399645316}
+  rifle: {fileID: 1271667865695698600, guid: 374734ce19c482f4d8004c27e55725f0, type: 3}
 --- !u!136 &2399569205201086335
 CapsuleCollider:
   m_ObjectHideFlags: 0

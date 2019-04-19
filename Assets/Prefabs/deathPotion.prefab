@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1114550119555355550}
   - component: {fileID: 1114550119560429214}
   - component: {fileID: 3853349850450050424}
-  - component: {fileID: 1261501597532033359}
   m_Layer: 0
   m_Name: deathPotion
   m_TagString: Item
@@ -114,22 +113,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.14285, y: 3.1428506, z: 4.6712728}
   m_Center: {x: 0, y: 0, z: 1.8614414}
---- !u!114 &1261501597532033359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114550119553158494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 2
-  eraseRenderer: 1
-  originalLayer: 0
-  originalMaterials: []
 --- !u!1 &5773789200430555602
 GameObject:
   m_ObjectHideFlags: 0

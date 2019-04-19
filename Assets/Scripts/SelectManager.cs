@@ -15,7 +15,7 @@ public class SelectManager : MonoBehaviour
 
     private Transform _selection;
 
-    private List<Transform> lookedObjects = new List<Transform>();
+    //private List<Transform> lookedObjects = new List<Transform>();
     
     void Update()
     {
@@ -34,16 +34,16 @@ public class SelectManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (lookedObjects.Count>0)
+           /* if (lookedObjects.Count>0)
             {
-                foreach (var elt in lookedObjects)
+                 foreach (var elt in lookedObjects)
                 {
                     elt.GetComponent<Outline>().eraseRenderer=true;
                 }
-            }
+            }*/
             
 
-            lookedObjects.Clear();
+            //lookedObjects.Clear();
 
             var select = hit.transform;
             if (select.CompareTag(selectableTagWerewolf))
@@ -58,8 +58,8 @@ public class SelectManager : MonoBehaviour
             }
             else if (select.CompareTag(selectableTagItem))
             {
-                    lookedObjects.Add(select);
-                    select.GetComponent<Outline>().eraseRenderer=false;
+                    //lookedObjects.Add(select);
+                   // select.GetComponent<Outline>().eraseRenderer=false;
          
             }
             

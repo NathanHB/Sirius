@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using cakeslice;
 using UnityEngine;
 using UnityStandardAssets.Utility;
 
@@ -11,11 +10,15 @@ public class SelectManager : MonoBehaviour
     [SerializeField] private string selectableTagItem = "Item";
     [SerializeField] private Material other;
     [SerializeField] private Material defaultMaterial;
+    [SerializeField] private Material walnut;
+    [SerializeField] private Material walnutOutlined;
+    [SerializeField] private Material potion;
+    [SerializeField] private Material potionOutlined;
     [SerializeField] private Camera cam;
 
     private Transform _selection;
 
-    //private List<Transform> lookedObjects = new List<Transform>();
+    private List<Transform> lookedObjects = new List<Transform>();
     
     void Update()
     {
@@ -34,16 +37,19 @@ public class SelectManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-           /* if (lookedObjects.Count>0)
+             if (lookedObjects.Count>0)
             {
                  foreach (var elt in lookedObjects)
                 {
-                    elt.GetComponent<Outline>().eraseRenderer=true;
+                    if (elt.name=="rifleContent")
+                        elt.GetComponent<Renderer>().material=walnut;
+                    else if (elt.name=="potion")
+                        elt.GetComponent<Renderer>().material=potion;
                 }
-            }*/
+            }
             
 
-            //lookedObjects.Clear();
+            lookedObjects.Clear();
 
             var select = hit.transform;
             if (select.CompareTag(selectableTagWerewolf))
@@ -58,8 +64,13 @@ public class SelectManager : MonoBehaviour
             }
             else if (select.CompareTag(selectableTagItem))
             {
-                    //lookedObjects.Add(select);
-                   // select.GetComponent<Outline>().eraseRenderer=false;
+                lookedObjects.Add(select);
+                if (select.name=="rifleContent")
+                    select.GetComponent<Renderer>().material = walnutOutlined;
+                else if (select.name=="potion")
+                    select.GetComponent<Renderer>().material=potionOutlined;
+                
+                   
          
             }
             

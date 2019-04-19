@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 4378743837134913622}
   - component: {fileID: 2678207499874083488}
   m_Layer: 0
-  m_Name: m1garand_body
+  m_Name: rifleContent
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,9 +249,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c852c356a40c6c946a63aa360f43dec3, type: 3}
-  - {fileID: 2100002, guid: c852c356a40c6c946a63aa360f43dec3, type: 3}
-  - {fileID: 2100004, guid: c852c356a40c6c946a63aa360f43dec3, type: 3}
+  - {fileID: 2100000, guid: fc10df5465651bc49ad34829dc3185db, type: 2}
+  - {fileID: 2100000, guid: fc10df5465651bc49ad34829dc3185db, type: 2}
+  - {fileID: 2100000, guid: fc10df5465651bc49ad34829dc3185db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

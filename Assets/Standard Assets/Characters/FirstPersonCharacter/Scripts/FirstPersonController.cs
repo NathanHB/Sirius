@@ -82,6 +82,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
+        
+        
+        //ADDED
+        public void ChangeMouseSensitivity(float X, float Y){
+            m_MouseLook.XSensitivity = X;
+            m_MouseLook.YSensitivity = Y;
+        }
+
+        
+        //END_ADDED
 
 
         private void PlayLandingSound()
@@ -255,5 +265,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+        
+        
+        
+        
     }
 }

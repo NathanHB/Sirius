@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using cakeslice;
 using UnityEngine;
 
 public class SelectManager : MonoBehaviour
 {
     // Here objects w/ tag 'Werewolf' change their Material when we point them.
-    [SerializeField] private string selectableTag = "Werewolf";
+    [SerializeField] private string selectableTagWerewolf = "Werewolf";
+    [SerializeField] private string selectableTagItem = "Item";
     [SerializeField] private Material other;
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Camera cam;
@@ -29,8 +31,9 @@ public class SelectManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+
             var select = hit.transform;
-            if (select.CompareTag(selectableTag))
+            if (select.CompareTag(selectableTagWerewolf))
             {
                 var selectRenderer = select.GetComponent<Renderer>();
                 if (selectRenderer != null)
@@ -39,6 +42,12 @@ public class SelectManager : MonoBehaviour
                 }
 
                 _selection = select;
+            }
+            else if (select.CompareTag(selectableTagItem))
+            {
+                
+  
+                
             }
             
             

@@ -58,14 +58,9 @@ public class SelectManager : MonoBehaviour
             }
             else if (select.CompareTag(selectableTagItem))
             {
-                if (select.name!="")
-                {
                     lookedObjects.Add(select);
                     select.GetComponent<Outline>().eraseRenderer=false;
-                    
-                }
-  
-                
+         
             }
             
             

@@ -11,6 +11,7 @@ TagManager:
   - Werewolf
   - Graphics
   - Item
+  - UI
   layers:
   - Default
   - TransparentFX

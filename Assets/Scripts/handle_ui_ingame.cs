@@ -7,14 +7,21 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class handle_ui_ingame : MonoBehaviour
 {
     public bool gamePaused = false;
-    public GameObject PauseMenuUi;
-    public GameObject PauseSettingsUi;
-
+    
+    public static GameObject PauseMenuUi;
+    public static GameObject PauseSettingsUi;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        
+        PauseMenuUi = FindObjectsOfType<Canvas>()[1].gameObject;
+        PauseSettingsUi = FindObjectsOfType<Canvas>()[2].gameObject;
+
+        PauseMenuUi.SetActive(false);
+        PauseSettingsUi.SetActive(false);
     }
 
     private void Update()
@@ -29,9 +36,8 @@ public class handle_ui_ingame : MonoBehaviour
     }
 
 
-    public void ResumeGame()
+    void ResumeGame()
     {
-        //character.ChangeMouseSensitivity(2,2);
         PauseMenuUi.SetActive(false); 
         PauseSettingsUi.SetActive(false);
         Cursor.visible = false;
@@ -41,10 +47,11 @@ public class handle_ui_ingame : MonoBehaviour
 
     void PauseGame()
     {
+        
+        
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         PauseMenuUi.SetActive(true);
-        //character.ChangeMouseSensitivity(0,0);
         gamePaused = true;
     }
 

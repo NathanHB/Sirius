@@ -31,25 +31,13 @@ public class PlayerMotor : NetworkBehaviour
 
     public void Rotate(Vector3 _rotation)
     {
-        if (uiHandler.GetComponent<handle_ui_ingame>().gamePaused){//if game is paused
-            velocity = Vector3.zero;
-            rotation=Vector3.zero;
-            camRot=Vector3.zero;     
-            return;
-        }
-
         if (hasAuthority) rotation = _rotation;
         else rotation = Vector3.zero;
     }
 
     public void RotateCamera(Vector3 _camRot)
     {
-        if (uiHandler.GetComponent<handle_ui_ingame>().gamePaused){//if game is paused
-            velocity = Vector3.zero;
-            rotation=Vector3.zero;
-            camRot=Vector3.zero;     
-            return;
-        }
+
 
         if ((cam.transform.eulerAngles.x >= 0 && cam.transform.eulerAngles.x <= 60) ||
             (cam.transform.eulerAngles.x >= 320 && cam.transform.eulerAngles.x <= 360))

@@ -6,10 +6,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class handle_ui_ingame : MonoBehaviour
 {
-    public static bool gamePaused = false;
+    public bool gamePaused = false;
     public GameObject PauseMenuUi;
     public GameObject PauseSettingsUi;
-    //public FirstPersonController character;
 
 
     private void Start()

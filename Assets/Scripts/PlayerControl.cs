@@ -21,6 +21,7 @@ public class PlayerControl : NetworkBehaviour
     {
         
         _motor = GetComponent<PlayerMotor>();
+
     }
 
     public void Update()
@@ -30,8 +31,7 @@ public class PlayerControl : NetworkBehaviour
 
         //Debug.Log("I have authority");
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+
         // get movement input from the keyboard
         float Xmov = Input.GetAxisRaw("Horizontal");
         float Zmov = Input.GetAxisRaw("Vertical");
@@ -42,19 +42,23 @@ public class PlayerControl : NetworkBehaviour
         Vector3 movHorizontal = transform.right * Xmov;
         Vector3 movVertical = transform.forward * Zmov;
         Vector3 Velocity = (movHorizontal + movVertical).normalized * speed;
-        _motor.Move(Velocity);
 
         // get Yrotation input for turning 
         float xrot = Input.GetAxisRaw("Mouse X");
 
         // apply Yrotation Inuput
         Vector3 xrotation = new Vector3(0, xrot, 0) * rotationSensitivity;
-        _motor.Rotate(xrotation);
 
         // get and apply Yrotation input
         float yrot = Input.GetAxisRaw("Mouse Y");
         Vector3 yrotation = new Vector3(yrot, 0, 0) * cameraSensitivity;
+        
+        
+        _motor.Move(Velocity);
+        _motor.Rotate(xrotation);
         _motor.RotateCamera(yrotation);
+
+       
         
         generalControls();
     }

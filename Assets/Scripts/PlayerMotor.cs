@@ -35,7 +35,18 @@ public class PlayerMotor : NetworkBehaviour
 
     public void RotateCamera(Vector3 _camRot)
     {
-        camRot = _camRot;
+        if ((cam.transform.eulerAngles.x >= 0 && cam.transform.eulerAngles.x <= 60) ||
+            (cam.transform.eulerAngles.x >= 320 && cam.transform.eulerAngles.x <= 360))
+        {
+            camRot = _camRot;
+        }
+        else
+        {
+            if (cam.transform.eulerAngles.x>60 && cam.transform.eulerAngles.x<180)
+                cam.transform.eulerAngles = new Vector3( 59.99f,cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);     
+            else if(cam.transform.eulerAngles.x>=180 && cam.transform.eulerAngles.x<320)
+                cam.transform.eulerAngles = new Vector3( 320.01f,cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
+        }
     }
 
     void FixedUpdate()
@@ -55,14 +66,16 @@ public class PlayerMotor : NetworkBehaviour
 
     void PerformRotation()
     {
-        if (rotation != Vector3.zero)
-        {   
-            //Debug.Log("turning");
-            rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
-        }
+            if (rotation != Vector3.zero)
+            {   
+                //Debug.Log("turning");
+                rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
+            
+            }
+            cam.transform.Rotate(-camRot);
+        
 
        // Debug.Log("Camera rotating");
-        cam.transform.Rotate(-camRot);
         
     }
 
@@ -70,7 +83,7 @@ public class PlayerMotor : NetworkBehaviour
     public void jump()
     {
 
-            rb.AddForce(Vector3.up*500, ForceMode.Impulse);
+            rb.AddForce(Vector3.up*400, ForceMode.Impulse);
 
     }
 

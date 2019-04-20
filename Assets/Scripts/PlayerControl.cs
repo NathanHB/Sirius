@@ -35,6 +35,8 @@ public class PlayerControl : NetworkBehaviour
         // get movement input from the keyboard
         float Xmov = Input.GetAxisRaw("Horizontal");
         float Zmov = Input.GetAxisRaw("Vertical");
+        
+
 
         //apply movement input
         Vector3 movHorizontal = transform.right * Xmov;
@@ -63,7 +65,7 @@ public class PlayerControl : NetworkBehaviour
         run();
         
 
-        Debug.DrawRay(transform.position+new Vector3(0,0.1f,0), -Vector3.up, Color.red);
+        //Debug.DrawRay(transform.position+new Vector3(0,0.1f,0), -Vector3.up, Color.red);
         //Debug.Log(Physics.Raycast(transform.position, Vector3.down+new Vector3(0,2,0), 0.1f, 1<<9));
         
         if (Physics.Raycast(transform.position+new Vector3(0,0.1f,0), -Vector3.up, 0.5f) && Input.GetKeyDown(KeyCode.Space))

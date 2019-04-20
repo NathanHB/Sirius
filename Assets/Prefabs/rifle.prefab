@@ -196,7 +196,6 @@ GameObject:
   - component: {fileID: 2775907228389889719}
   - component: {fileID: 2775907228390659731}
   - component: {fileID: 2775907228391789651}
-  - component: {fileID: 4378743837134913622}
   - component: {fileID: 2678207499874083488}
   m_Layer: 0
   m_Name: rifleContent
@@ -271,22 +270,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &4378743837134913622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2775907228389591703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: 2
-  eraseRenderer: 1
-  originalLayer: 0
-  originalMaterials: []
 --- !u!65 &2678207499874083488
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -298,8 +281,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.670789, y: 1.8857553, z: 0.4478361}
-  m_Center: {x: 2.5337548, y: -0.58364064, z: 0.1870128}
+  m_Size: {x: 11.0808, y: 2.2151923, z: 0.4478361}
+  m_Center: {x: 2.738761, y: -0.41892213, z: 0.1870128}
 --- !u!1 &2775907228389591705
 GameObject:
   m_ObjectHideFlags: 0

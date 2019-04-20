@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class gameMaster : MonoBehaviour
+public class gameMaster : NetworkBehaviour
 {
     private const string playerNamePrefix = "Player ";
     
     private static Dictionary<string, (PlayerManager, string)> players = new Dictionary<string, (PlayerManager, string)>();
 
-    [SerializeField] private static int wolfneeded = 0;
+    [SerializeField] private static int wolfneeded = 2;
     private static int wolfCount = 0;
 
-    public static string RegisterPlayer(string netID, PlayerManager player)
+    
+    public static string CmdRegisterPlayer(string netID, PlayerManager player)
     {
         string playerID = playerNamePrefix + netID;
         
@@ -21,18 +23,19 @@ public class gameMaster : MonoBehaviour
 
         player.transform.name = playerID;
         
-        Debug.Log(playerID + " has been registered.");
+        Debug.Log(playerID + " has been registered with role: " + role);
 
         return role;
     }
 
-    public static void UnregisterPlayer(string playerID)
+    
+    public static void CmdUnregisterPlayer(string playerID)
     {
         players.Remove(playerID);
     }
 
 
-    public static PlayerManager GetPlayer(string playerID)
+    public PlayerManager GetPlayer(string playerID)
     {
         return players[playerID].Item1;
     }

@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 3735964180399645316}
+  graphics: {fileID: 5098969316704409415}
 --- !u!114 &7093928774355575773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,6 +441,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba59792a9b484360a8509bb1cf71485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 1
+  DisableOnDeath:
+  - {fileID: 5098969316704409415}
+  _col: {fileID: 0}
 --- !u!1001 &2796312023705542427
 PrefabInstance:
   m_ObjectHideFlags: 0

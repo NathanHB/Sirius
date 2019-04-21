@@ -8,6 +8,21 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Idle MoCap" t="Include">
+          <e p="Idle Package Description.txt" t="Include" />
+        </e>
+        <e p="MoveMotionPack" t="Include">
+          <e p="SampleScene" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="PlayManager.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="DiffuseReflectiveShader.shader" t="Include" />
+              <e p="ReflectiveDiffuseSpec.shader" t="Include" />
+              <e p="ReflectiveDiffuseSpecTransp.shader" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="SampleScenes" t="Include">
           <e p="Menu" t="Include">
             <e p="Scripts" t="Include">
@@ -33,6 +48,7 @@
           <e p="gameMaster.cs" t="Include" />
           <e p="handle_ui.cs" t="Include" />
           <e p="handle_ui_ingame.cs" t="Include" />
+          <e p="handleAnimation.cs" t="Include" />
           <e p="handleVolume.cs" t="Include" />
           <e p="HostGame.cs" t="Include" />
           <e p="JoinGame.cs" t="Include" />

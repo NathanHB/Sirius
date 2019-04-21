@@ -15,14 +15,17 @@ public class PlayerMotor : NetworkBehaviour
     private Rigidbody rb;
     private float distToGround;
 
+    private bool isWalking;
 
-    private bool isPaused;
+   
+    
+    
 
     void Start()
     {
+        isWalking = false;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;//Prevent the damn rb to spin after colliding a wall
-        
     }
 
     public void Move(Vector3 _velocity)

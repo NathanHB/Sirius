@@ -8,20 +8,21 @@ using UnityEngine.Networking;
 public class PlayerMotor : NetworkBehaviour
 {
     [SerializeField] private Camera cam;
-    private Vector3 velocity = Vector3.zero;
-    private Vector3 rotation = Vector3.zero;
-    private Vector3 camRot = Vector3.zero;
+    public Vector3 velocity = Vector3.zero;
+    public Vector3 rotation = Vector3.zero;
+    public Vector3 camRot = Vector3.zero;
 
     private Rigidbody rb;
     private float distToGround;
 
-    public GameObject uiHandler;
 
+    private bool isPaused;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;//Prevent the damn rb to spin after colliding a wall
+        
     }
 
     public void Move(Vector3 _velocity)

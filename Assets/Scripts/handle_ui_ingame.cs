@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
+﻿using UnityEngine;
 
 public class handle_ui_ingame : MonoBehaviour
 {
-    public static bool gamePaused = false;
-    
+    private bool gamePaused;
+ 
     public static GameObject PauseMenuUi;
     public static GameObject PauseSettingsUi;
 
+    public GameObject player;
+    //private static Rigidbody rb;
+    public Camera cam;
+
+    private static PlayerMotor motor;
     private void Start()
     {
+        gamePaused = false;
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -22,22 +25,36 @@ public class handle_ui_ingame : MonoBehaviour
 
         PauseMenuUi.SetActive(false);
         PauseSettingsUi.SetActive(false);
+
+        motor = player.GetComponent<PlayerMotor>();
+        //rb = player.GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
+       // Debug.Log(gamePaused+rb.GetInstanceID().ToString());
         if (Input.GetKeyDown(KeyCode.Escape))
-        { 
+        {
             if (gamePaused)
                 ResumeGame();
             else
                 PauseGame();
         }
+
+        if (gamePaused)
+        {
+            motor.rotation=Vector3.zero;
+            motor.velocity=Vector3.zero;
+            motor.camRot=Vector3.zero;            
+        }
+
     }
 
 
-    void ResumeGame()
+    public void ResumeGame()
     {
+        //rb.constraints = RigidbodyConstraints.FreezeRotation;
+        
         PauseMenuUi.SetActive(false); 
         PauseSettingsUi.SetActive(false);
         Cursor.visible = false;
@@ -48,7 +65,7 @@ public class handle_ui_ingame : MonoBehaviour
     void PauseGame()
     {
         
-        
+        //rb.constraints = RigidbodyConstraints.FreezeAll;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         PauseMenuUi.SetActive(true);

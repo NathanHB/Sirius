@@ -15,11 +15,9 @@ public class PlayerControl : NetworkBehaviour
 
     private PlayerMotor _motor;
 
-    
 
     void Start()
-    {
-        
+    {     
         _motor = GetComponent<PlayerMotor>();
 
     }
@@ -52,11 +50,12 @@ public class PlayerControl : NetworkBehaviour
         // get and apply Yrotation input
         float yrot = Input.GetAxisRaw("Mouse Y");
         Vector3 yrotation = new Vector3(yrot, 0, 0) * cameraSensitivity;
-        
-        
+
         _motor.Move(Velocity);
         _motor.Rotate(xrotation);
-        _motor.RotateCamera(yrotation);
+        _motor.RotateCamera(yrotation); 
+       
+
 
        
         

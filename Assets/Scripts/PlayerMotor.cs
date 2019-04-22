@@ -13,12 +13,10 @@ public class PlayerMotor : NetworkBehaviour
     public Vector3 camRot = Vector3.zero;
 
     private Rigidbody rb;
-    private float distToGround;
 
     private bool isWalking;
 
-   
-    
+    public AudioSource jumpSound;
     
 
     void Start()
@@ -27,6 +25,7 @@ public class PlayerMotor : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;//Prevent the damn rb to spin after colliding a wall
     }
+
 
     public void Move(Vector3 _velocity)
     {
@@ -90,7 +89,7 @@ public class PlayerMotor : NetworkBehaviour
 
     public void jump()
     {
-
+            jumpSound.Play();
             rb.AddForce(Vector3.up*400, ForceMode.Impulse);
 
     }

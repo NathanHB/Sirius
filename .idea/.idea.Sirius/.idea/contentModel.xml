@@ -11,6 +11,7 @@
         <e p="Idle MoCap" t="Include">
           <e p="Idle Package Description.txt" t="Include" />
         </e>
+        <e p="jumpAnimBehaviour.cs" t="Include" />
         <e p="MoveMotionPack" t="Include">
           <e p="SampleScene" t="Include">
             <e p="Scripts" t="Include">

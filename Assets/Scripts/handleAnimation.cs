@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class handleAnimation : MonoBehaviour
 {
@@ -24,10 +26,20 @@ public class handleAnimation : MonoBehaviour
 
         if (velocity.magnitude>0)
         {
-            if (!isWalking)
+            if (velocity.magnitude<6)
             {
-                villager.GetComponent<Animator>().SetBool("walking", true);
-                isWalking = true;
+                if (!isWalking){
+                  villager.GetComponent<Animator>().SetBool("walking", true);
+                  isWalking = true;
+                }
+            }  
+            else if (velocity.magnitude > 6)
+            {
+                if (!isRunning)
+                {
+                    villager.GetComponent<Animator>().SetBool("running", true);
+                    isRunning = true;
+                }
             }
         }
         else
@@ -37,27 +49,18 @@ public class handleAnimation : MonoBehaviour
                 villager.GetComponent<Animator>().SetBool("walking", false);
                 isWalking = false;
             }
-            
-        }
-
-        if (velocity.magnitude > 6)
-        {
-            if (!isRunning)
-            {
-                villager.GetComponent<Animator>().SetBool("running", true);
-                isRunning = true;
-            }
-        }
-        else
-        {
             if (isRunning)
             {
                 villager.GetComponent<Animator>().SetBool("running", false);
                 isRunning = false;
             }
-            
         }
-        
-        
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            villager.GetComponent<Animator>().SetBool("jumping", true);
+        }
+               
     }
 }

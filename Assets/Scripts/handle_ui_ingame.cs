@@ -2,15 +2,13 @@
 
 public class handle_ui_ingame : MonoBehaviour
 {
-    private bool gamePaused;
+    public bool gamePaused;
  
     public static GameObject PauseMenuUi;
     public static GameObject PauseSettingsUi;
 
-    public GameObject player;
+    [SerializeField] private GameObject player;
     //private static Rigidbody rb;
-    public Camera cam;
-
     private static PlayerMotor motor;
     private void Start()
     {

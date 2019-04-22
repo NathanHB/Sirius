@@ -2778,7 +2778,7 @@ Animator:
   m_GameObject: {fileID: 2378259744287201710}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 5eacf63a6724ec64098076eda7d539e8, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9babb70d1540afb4a8624be968a6e4f9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3970,7 +3970,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2792305630715606711}
   - component: {fileID: 2854404006673372887}
-  - component: {fileID: 2396668127970981122}
   m_Layer: 9
   m_Name: VillagerSkin
   m_TagString: Untagged
@@ -4014,20 +4013,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2396668127970981122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2794491694496911521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7155e26a748330547bc6c23146d74abb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  villager: {fileID: 2794491694496911521}
-  player: {fileID: 7215384032563771448}
 --- !u!1 &2794493829985580603
 GameObject:
   m_ObjectHideFlags: 0
@@ -7338,6 +7323,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0}
   camRot: {x: 0, y: 0, z: 0}
+  villager: {fileID: 2794491694496911521}
   jumpSound: {fileID: 5094743890221621640}
 --- !u!114 &1568597569318948210
 MonoBehaviour:

@@ -11,10 +11,16 @@ public class PlayerMotor : NetworkBehaviour
     public Vector3 velocity = Vector3.zero;
     public Vector3 rotation = Vector3.zero;
     public Vector3 camRot = Vector3.zero;
+    [SerializeField] private GameObject villager;
 
+    
     private Rigidbody rb;
 
     private bool isWalking;
+    private bool isRunning;
+    
+   
+
 
     public AudioSource jumpSound;
     
@@ -22,8 +28,14 @@ public class PlayerMotor : NetworkBehaviour
     void Start()
     {
         isWalking = false;
+        isRunning = false;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;//Prevent the damn rb to spin after colliding a wall
+    }
+
+    private void Update()
+    {
+        handleAnimation(velocity.magnitude);
     }
 
 
@@ -91,7 +103,44 @@ public class PlayerMotor : NetworkBehaviour
     {
             jumpSound.Play();
             rb.AddForce(Vector3.up*400, ForceMode.Impulse);
+            villager.GetComponent<Animator>().SetBool("jumping", true);
+    }
+    
+    
+    void handleAnimation(float velocity)
+    {
+        if (velocity>0)
+        {
+            if (velocity<6)
+            {
+                if (!isWalking){
+                    villager.GetComponent<Animator>().SetBool("walking", true);
+                    isWalking = true;
+                    
+                    villager.GetComponent<Animator>().SetBool("running", false);
+                    isRunning = false;
+                }
+            }  
+            else if (velocity > 6)
+            {
+                if (!isRunning)
+                {
+                    villager.GetComponent<Animator>().SetBool("running", true);
+                    isRunning = true;
+                    
+                    villager.GetComponent<Animator>().SetBool("walking", false);
+                    isWalking = false;
+                }
+            }
+        }
+        else
+        {
+                villager.GetComponent<Animator>().SetBool("walking", false);
+                isWalking = false;
+                villager.GetComponent<Animator>().SetBool("running", false);
+                isRunning = false;
 
+        }
     }
 
 

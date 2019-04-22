@@ -60,6 +60,7 @@ public class PlayerControl : NetworkBehaviour
        
         
         generalControls();
+        
     }
 
 
@@ -92,6 +93,9 @@ public class PlayerControl : NetworkBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
             speed = 5;
     }
+
+
+
 
 
 

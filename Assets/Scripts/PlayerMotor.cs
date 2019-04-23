@@ -113,6 +113,8 @@ public class PlayerMotor : NetworkBehaviour
         {
             if (velocity<6)
             {
+                    
+                
                 if (!isWalking){
                     villager.GetComponent<Animator>().SetBool("walking", true);
                     isWalking = true;

@@ -44,7 +44,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="AutoIntensity.cs" t="Include" />
           <e p="dayNightCycle1.cs" t="Include" />
           <e p="gameMaster.cs" t="Include" />
           <e p="handle_ui.cs" t="Include" />

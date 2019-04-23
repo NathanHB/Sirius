@@ -647,7 +647,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2448948636916636113}
+      - m_Target: {fileID: 5054186436935848041}
         m_MethodName: switchToPauseMenu
         m_Mode: 1
         m_Arguments:
@@ -6440,7 +6440,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2448948636916636113}
+      - m_Target: {fileID: 5054186436935848041}
         m_MethodName: switchToSettings
         m_Mode: 1
         m_Arguments:
@@ -6569,7 +6569,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2448948636916636113}
+      - m_Target: {fileID: 5054186436935848041}
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -6715,10 +6715,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8378849497048516704}
   - component: {fileID: 4342865211882090688}
-  - component: {fileID: 2448948636916636113}
   - component: {fileID: 5951301647284735716}
   - component: {fileID: 8831222833813365547}
   - component: {fileID: 803338176018282249}
+  - component: {fileID: 5054186436935848041}
   m_Layer: 0
   m_Name: GameObjectUI
   m_TagString: Untagged
@@ -6752,20 +6752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4654d52645635449c6d11d04ccade4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2448948636916636113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5848902124224749494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f62822506352b334091697ffd6c8881d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gamePaused: 0
-  player: {fileID: 7215384032563771448}
 --- !u!114 &5951301647284735716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6804,6 +6790,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 5215759478982227059}
+--- !u!114 &5054186436935848041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5848902124224749494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec86e211489903d4784a9f8785d55c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePaused: 0
+  player: {fileID: 7215384032563771448}
 --- !u!1 &5858570462728671822
 GameObject:
   m_ObjectHideFlags: 0

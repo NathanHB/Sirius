@@ -11,7 +11,6 @@
         <e p="Idle MoCap" t="Include">
           <e p="Idle Package Description.txt" t="Include" />
         </e>
-        <e p="jumpAnimBehaviour.cs" t="Include" />
         <e p="MoveMotionPack" t="Include">
           <e p="SampleScene" t="Include">
             <e p="Scripts" t="Include">
@@ -52,6 +51,7 @@
           <e p="handleVolume.cs" t="Include" />
           <e p="HostGame.cs" t="Include" />
           <e p="JoinGame.cs" t="Include" />
+          <e p="jumpAnimBehaviour.cs" t="Include" />
           <e p="NewBehaviourScript.cs" t="Include" />
           <e p="PlayerControl.cs" t="Include" />
           <e p="PlayerManager.cs" t="Include" />
@@ -66,6 +66,7 @@
           <e p="switch_scene.cs" t="Include" />
           <e p="villager.cs" t="Include" />
           <e p="werewolf.cs" t="Include" />
+          <e p="WolfAttack.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
           <e p="outline.shader" t="Include" />

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381398311926582870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.647, y: 0.995, z: -1.323}
+  m_LocalPosition: {x: -0.001, y: 1.044, z: -0.467}
   m_LocalScale: {x: -0.0010207596, y: 1.9526805, z: 0.0043543796}
   m_Children: []
   m_Father: {fileID: 5766338359006332653}
@@ -120,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532823403799220163}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -3.296072, y: 1.6746262, z: -1.748529}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6.8787417, y: 89.05472, z: 196.52104}
   m_Children: []
   m_Father: {fileID: 737666645590034117}
@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532823403799220169}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -3.196072, y: 1.6746262, z: -1.132529}
+  m_LocalPosition: {x: 0.082, y: 0.347, z: 0.719}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 737666645590034117}
@@ -258,8 +258,8 @@ GameObject:
   m_Component:
   - component: {fileID: 737666645590034117}
   - component: {fileID: 2329199173757186974}
-  - component: {fileID: 5701797351644254570}
   - component: {fileID: 2415734224578071032}
+  - component: {fileID: 6695534061580271931}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7083851217244902406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.171, z: 0}
+  m_LocalPosition: {x: 0, y: 1.021, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1532823403799253993}
@@ -299,19 +299,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!65 &5701797351644254570
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7083851217244902406}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.47929, y: 3.727879, z: 1.7005672}
-  m_Center: {x: -3.2950253, y: 1.6974876, z: -1.7653143}
 --- !u!59 &2415734224578071032
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -320,10 +307,10 @@ HingeJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7083851217244902406}
   m_ConnectedBody: {fileID: 4680274637768178787}
-  m_Anchor: {x: -3.3, y: 1.59, z: -2.65}
+  m_Anchor: {x: 0, y: 0, z: -0.92}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 2.9390082, y: -0.027529286, z: 0.4593018}
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   m_UseSpring: 1
   m_Spring:
     spring: 5
@@ -347,6 +334,19 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!65 &6695534061580271931
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083851217244902406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.68601435, y: 3.9116848, z: 1.7294402}
+  m_Center: {x: 0.008829325, y: 0.03012216, z: -0.015410304}
 --- !u!1 &8406560732735823113
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 5766338359006332653}
   - component: {fileID: 3541701915622480342}
   m_Layer: 0
-  m_Name: simpleDoor
+  m_Name: SimpleDoor
   m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8406560732735823113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.27, y: 0, z: 1.92}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 737666645590034117}
@@ -390,7 +390,7 @@ Animator:
   m_GameObject: {fileID: 8406560732735823113}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8a27ef69104ee224dbe94f635598ee41, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

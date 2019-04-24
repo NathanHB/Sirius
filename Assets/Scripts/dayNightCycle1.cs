@@ -40,6 +40,6 @@ public class dayNightCycle1 : MonoBehaviour
         
         //Debug.Log(isNight);
         
-        transform.RotateAround(new Vector3(250,250,0), Vector3.forward,  3f*Time.deltaTime);        
+        //transform.RotateAround(new Vector3(250,250,0), Vector3.forward,  3f*Time.deltaTime);        
     }
 }

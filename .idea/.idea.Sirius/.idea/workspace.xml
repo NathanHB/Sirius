@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e11e2d13-25e2-4f07-a29b-52b1f2a2b6db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/OnlineScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/OnlineScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/dayNightCycle1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/dayNightCycle1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/handle_ui_ingame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/handle_ui_ingame.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +158,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/handle_ui_ingame.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="192">
@@ -182,19 +180,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/dayNightCycle1.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+            <state relative-caret-position="640">
+              <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
               <folding>
-                <marker date="1556115543730" expanded="false" signature="6:78" ph="..." />
-                <marker date="1556115543730" expanded="true" signature="123:879" ph="{...}" />
-                <marker date="1556115543730" expanded="true" signature="279:345" ph="{...}" />
-                <marker date="1556115543730" expanded="true" signature="370:877" ph="{...}" />
-                <marker date="1556115543730" expanded="true" signature="419:645" ph="{...}" />
-                <marker date="1556115543730" expanded="true" signature="572:635" ph="{...}" />
-                <marker date="1556115543730" expanded="true" signature="658:720" ph="{...}" />
+                <marker date="1556118920620" expanded="false" signature="6:78" ph="..." />
+                <marker date="1556118920620" expanded="true" signature="123:881" ph="{...}" />
+                <marker date="1556118920620" expanded="true" signature="279:345" ph="{...}" />
+                <marker date="1556118920620" expanded="true" signature="370:879" ph="{...}" />
+                <marker date="1556118920620" expanded="true" signature="419:645" ph="{...}" />
+                <marker date="1556118920620" expanded="true" signature="572:635" ph="{...}" />
+                <marker date="1556118920620" expanded="true" signature="658:720" ph="{...}" />
+                <marker date="1556118920620" expanded="true" signature="740:873" ph="/* Debug.Log(isNight); ... */" />
               </folding>
             </state>
           </provider>
@@ -266,8 +265,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/handleAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMotor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/dayNightCycle1.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/handle_ui_ingame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/dayNightCycle1.cs" />
       </list>
     </option>
   </component>
@@ -362,12 +361,12 @@
       <workItem from="1555964610325" duration="2659000" />
       <workItem from="1556016221484" duration="931000" />
       <workItem from="1556028384670" duration="2087000" />
-      <workItem from="1556112745961" duration="2548000" />
+      <workItem from="1556112745961" duration="3150000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101124000" />
+    <option name="totallyTimeSpent" value="101726000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -695,22 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/dayNightCycle1.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-          <folding>
-            <marker date="1556115543730" expanded="false" signature="6:78" ph="..." />
-            <marker date="1556115543730" expanded="true" signature="123:879" ph="{...}" />
-            <marker date="1556115543730" expanded="true" signature="279:345" ph="{...}" />
-            <marker date="1556115543730" expanded="true" signature="370:877" ph="{...}" />
-            <marker date="1556115543730" expanded="true" signature="419:645" ph="{...}" />
-            <marker date="1556115543730" expanded="true" signature="572:635" ph="{...}" />
-            <marker date="1556115543730" expanded="true" signature="658:720" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/handle_ui_ingame.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -727,6 +710,23 @@
             <marker date="1556115664376" expanded="true" signature="1955:2046" ph="{...}" />
             <marker date="1556115664376" expanded="true" signature="2083:2177" ph="{...}" />
             <marker date="1556115664376" expanded="true" signature="2230:2285" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/dayNightCycle1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+          <folding>
+            <marker date="1556118920620" expanded="false" signature="6:78" ph="..." />
+            <marker date="1556118920620" expanded="true" signature="123:881" ph="{...}" />
+            <marker date="1556118920620" expanded="true" signature="279:345" ph="{...}" />
+            <marker date="1556118920620" expanded="true" signature="370:879" ph="{...}" />
+            <marker date="1556118920620" expanded="true" signature="419:645" ph="{...}" />
+            <marker date="1556118920620" expanded="true" signature="572:635" ph="{...}" />
+            <marker date="1556118920620" expanded="true" signature="658:720" ph="{...}" />
+            <marker date="1556118920620" expanded="true" signature="740:873" ph="/* Debug.Log(isNight); ... */" />
           </folding>
         </state>
       </provider>

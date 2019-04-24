@@ -6803,6 +6803,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
+  PauseMenuUi: {fileID: 1443463837875981586}
+  PauseSettingsUi: {fileID: 9125879610955968795}
   player: {fileID: 7215384032563771448}
 --- !u!1 &5858570462728671822
 GameObject:

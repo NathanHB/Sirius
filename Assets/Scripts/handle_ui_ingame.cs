@@ -4,9 +4,11 @@ public class handle_ui_ingame : MonoBehaviour
 {
     public bool gamePaused;
  
-    public static GameObject PauseMenuUi;
-    public static GameObject PauseSettingsUi;
+    //public static GameObject PauseMenuUi;
+    //public static GameObject PauseSettingsUi;
 
+    [SerializeField] private GameObject PauseMenuUi;
+    [SerializeField] private GameObject PauseSettingsUi;
     [SerializeField] private GameObject player;
     //private static Rigidbody rb;
     private static PlayerMotor motor;
@@ -20,7 +22,7 @@ public class handle_ui_ingame : MonoBehaviour
         
         PauseMenuUi = FindObjectsOfType<Canvas>()[1].gameObject;
         PauseSettingsUi = FindObjectsOfType<Canvas>()[2].gameObject;
-
+        
         PauseMenuUi.SetActive(false);
         PauseSettingsUi.SetActive(false);
 

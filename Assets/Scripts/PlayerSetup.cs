@@ -9,6 +9,7 @@ public class PlayerSetup : NetworkBehaviour
     private Camera sceneCamera;
     [SerializeField]private Camera playerCam ;
     [SerializeField] private GameObject graphics;
+    [SerializeField] private Behaviour[] comps;
 
     private string role;
     
@@ -16,31 +17,19 @@ public class PlayerSetup : NetworkBehaviour
     {
         sceneCamera = Camera.main;
 
-        if (sceneCamera != null) sceneCamera.gameObject.SetActive(false);
-    }
-
-    public void Update()
-    {
-        if(!hasAuthority)
+        if (sceneCamera != null)
         {
-            if (playerCam != null) playerCam.gameObject.SetActive(false);
+            Debug.Log("shutting down main cam.");
+            sceneCamera.gameObject.SetActive(false);
         }
-        else
-        {
-            if (playerCam != null) playerCam.gameObject.SetActive(true);
-            
-        }
-
-        if (isLocalPlayer)
-        {
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                GetComponent<PlayerManager>().RpcTakeDmg(10);
-            }
-        }
-
         
+        if (!isLocalPlayer)
+        {
+            DisableComponent();
+            setRemoteLayer();
+        }
     }
+
 
     public override void OnStartClient()
     {
@@ -51,21 +40,27 @@ public class PlayerSetup : NetworkBehaviour
         PlayerManager player = GetComponent<PlayerManager>();
 
         role = gameMaster.CmdRegisterPlayer(netID, player);
-
-        //SkinManager SkinManager = graphics.GetComponent<SkinManager>();
-        //if (SkinManager != null)
-        //{
-        //    if (role == "Wolf") SkinManager.ChangeToWolf();
-        //    else SkinManager.ChangeToVillager();
-        //} 
-
+        transform.gameObject.tag = role;
     }
 
     // Called when the object is destroyed
     void OnDisable()
     {
         if(sceneCamera != null) sceneCamera.gameObject.SetActive(true);
-
+        Debug.Log("u dead");
         gameMaster.CmdUnregisterPlayer(transform.name);
+    }
+
+    void DisableComponent()
+    {
+        foreach (var comp in comps)
+        {
+            comp.enabled = false;
+        }
+    }
+
+    void setRemoteLayer()
+    {
+        gameObject.layer = LayerMask.NameToLayer("RemotePlayer");
     }
 }

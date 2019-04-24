@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class gameMaster : NetworkBehaviour
 {
-    private const string playerNamePrefix = "Player ";
+    private const string playerNamePrefix = "player ";
     
     private static Dictionary<string, (PlayerManager, string)> players = new Dictionary<string, (PlayerManager, string)>();
 
@@ -23,8 +23,6 @@ public class gameMaster : NetworkBehaviour
 
         player.transform.name = playerID;
         
-        Debug.Log(playerID + " has been registered with role: " + role);
-
         return role;
     }
 
@@ -35,7 +33,7 @@ public class gameMaster : NetworkBehaviour
     }
 
 
-    public PlayerManager GetPlayer(string playerID)
+    public static PlayerManager GetPlayer(string playerID)
     {
         return players[playerID].Item1;
     }
@@ -60,14 +58,13 @@ public class gameMaster : NetworkBehaviour
         if (wolfCount == wolfneeded)
         {
             // role will be Villager
-            Debug.Log("Role: Villager");
             return "Villager";
         }
         else
         {
             // We have a chance to be a wolf
             wolfCount++;
-            return "Wolf";
+            return "Werewolf";
         }
     }
     

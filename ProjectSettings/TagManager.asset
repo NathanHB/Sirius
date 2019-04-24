@@ -5,13 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - door
-  - player
   - gound
   - Selectable
   - Werewolf
   - Graphics
   - Item
   - UI
+  - Villager
   layers:
   - Default
   - TransparentFX
@@ -22,8 +22,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Player
-  - 
+  - RemotePlayer
+  - LocalPlayer
   - 
   - 
   - 

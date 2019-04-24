@@ -6,9 +6,10 @@ using UnityEngine.Networking;
 
 public class PlayerManager : NetworkBehaviour
 {
-    [SerializeField]private int hp;
+    private int hp = 25;
     [SerializeField] private GameObject[] DisableOnDeath;
     [SerializeField] private Collider _col;
+    private Camera sceneCam;
         
     private bool isStuned = false;
     
@@ -21,36 +22,41 @@ public class PlayerManager : NetworkBehaviour
     }
 
 
-    // Start is called before the first frame update
-    void Awake()
+    void Update()
     {
+        if (!isLocalPlayer) return;
+        
+        if (Input.GetKeyDown(KeyCode.K)) RpcTakeDmg(99);
         
     }
 
-    // Update is called once per frame
     [ClientRpc]
     public void RpcTakeDmg(int amount)
     {
         if (isDead) return;
+        
         hp -= amount;
 
+        Debug.Log(transform.name + " now have " + hp + " hp.");
         if (hp <= 0) Die();
-
-        Debug.Log("u dead");
     }
 
     private void Die()
     {
+        sceneCam = Camera.main;
         isDead = true;
-
         for (int i = 0; i < DisableOnDeath.Length; i++)
         {
             DisableOnDeath[i].SetActive(false);
         }
-        
         // disable some components to make the player dead but still here
         if (_col != null) _col.enabled = false;
-        
+        gameMaster.CmdUnregisterPlayer(transform.name);
+        if (hasAuthority && sceneCam != null)
+        {
+            Debug.Log("dying with authority");
+            sceneCam.gameObject.SetActive(true);
+        }
         Debug.Log(transform.name + " is dead.");
     }
 }

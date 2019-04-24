@@ -24,17 +24,10 @@ public class PlayerControl : NetworkBehaviour
 
     public void Update()
     {
-        
-        if (!hasAuthority) return;
-
-        //Debug.Log("I have authority");
-
 
         // get movement input from the keyboard
         float Xmov = Input.GetAxisRaw("Horizontal");
         float Zmov = Input.GetAxisRaw("Vertical");
-        
-
 
         //apply movement input
         Vector3 movHorizontal = transform.right * Xmov;
@@ -55,10 +48,6 @@ public class PlayerControl : NetworkBehaviour
         _motor.Rotate(xrotation);
         _motor.RotateCamera(yrotation); 
        
-
-
-       
-        
         generalControls();
         
     }
@@ -79,8 +68,6 @@ public class PlayerControl : NetworkBehaviour
     }
 
 
-
-
     private void jump()
     {
            _motor.jump(); 
@@ -93,12 +80,5 @@ public class PlayerControl : NetworkBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
             speed = 5;
     }
-
-
-
-
-
-
-
 
 }

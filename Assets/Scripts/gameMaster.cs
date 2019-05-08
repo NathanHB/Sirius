@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -12,7 +13,8 @@ public class gameMaster : NetworkBehaviour
     [SerializeField] private static int wolfneeded = 2;
     private static int wolfCount = 0;
 
-    
+
+
     public static string CmdRegisterPlayer(string netID, PlayerManager player)
     {
         string playerID = playerNamePrefix + netID;

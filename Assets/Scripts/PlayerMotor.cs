@@ -52,8 +52,6 @@ public class PlayerMotor : NetworkBehaviour
 
     public void RotateCamera(Vector3 _camRot)
     {
-
-
         if ((cam.transform.eulerAngles.x >= 0 && cam.transform.eulerAngles.x <= 60) ||
             (cam.transform.eulerAngles.x >= 320 && cam.transform.eulerAngles.x <= 360))
         {
@@ -61,11 +59,13 @@ public class PlayerMotor : NetworkBehaviour
         }
         else
         {
-            if (cam.transform.eulerAngles.x>60 && cam.transform.eulerAngles.x<180)
+            if (cam.transform.eulerAngles.x > 60 && cam.transform.eulerAngles.x < 180)
                 cam.transform.eulerAngles = new Vector3( 59.99f,cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);     
-            else if(cam.transform.eulerAngles.x>=180 && cam.transform.eulerAngles.x<320)
-                cam.transform.eulerAngles = new Vector3( 320.01f,cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
+            else if (cam.transform.eulerAngles.x >= 180 && cam.transform.eulerAngles.x < 320)
+                cam.transform.eulerAngles = new Vector3(320.01f, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
+                
         }
+
     }
 
     void FixedUpdate()

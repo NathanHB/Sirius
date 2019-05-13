@@ -7574,9 +7574,7 @@ MonoBehaviour:
   - {fileID: 5859244477101889055}
   - {fileID: 6716199013568440192}
   - {fileID: 3735964180399645316}
-  - {fileID: 0}
   - {fileID: 3670311522806495580}
-  - {fileID: 0}
 --- !u!114 &7093928774355575773
 MonoBehaviour:
   m_ObjectHideFlags: 0

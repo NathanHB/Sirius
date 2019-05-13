@@ -12,6 +12,8 @@ public class PlayerMotor : NetworkBehaviour
     public Vector3 rotation = Vector3.zero;
     public Vector3 camRot = Vector3.zero;
     [SerializeField] private GameObject villager;
+    private handleAnimation animHandler;
+    
 
     
     private Rigidbody rb;
@@ -31,10 +33,12 @@ public class PlayerMotor : NetworkBehaviour
         isRunning = false;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;//Prevent the damn rb to spin after colliding a wall
+        animHandler = GetComponent<handleAnimation>();
     }
 
     private void Update()
     {
+        //animHandler.handlingAnimation(velocity.magnitude);
         handleAnimation(velocity.magnitude);
     }
 
@@ -105,10 +109,36 @@ public class PlayerMotor : NetworkBehaviour
             rb.AddForce(Vector3.up*400, ForceMode.Impulse);
             villager.GetComponent<Animator>().SetBool("jumping", true);
     }
+
+    public override void OnStartLocalPlayer()  
+    {  
+        NetworkAnimator netAnim = villager.GetComponent<NetworkAnimator>();  
+      
+        netAnim.SetParameterAutoSend(0, true);  
+        netAnim.SetParameterAutoSend(1, true);  
+        netAnim.SetParameterAutoSend(2, true);  
+        netAnim.SetParameterAutoSend(3, true);  
+
+    }  
+  
+    public override void PreStartClient()  
+    {   
+        NetworkAnimator netAnim = villager.GetComponent<NetworkAnimator>();  
+        netAnim.SetParameterAutoSend(0, true); 
+        netAnim.SetParameterAutoSend(1, true);  
+        netAnim.SetParameterAutoSend(2, true);  
+        netAnim.SetParameterAutoSend(3, true);  
+
+    }  
+
+
+
     
     
     void handleAnimation(float velocity)
     {
+        if (!isLocalPlayer)
+            return;
         if (velocity>0)
         {
             if (velocity<6)

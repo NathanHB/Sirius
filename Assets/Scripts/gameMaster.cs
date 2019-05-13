@@ -25,7 +25,7 @@ public class gameMaster : NetworkBehaviour
         if (gameStarted)
             timer += Time.deltaTime;
         
-        Debug.Log(timer);
+        //Debug.Log(timer);
     }
 
 

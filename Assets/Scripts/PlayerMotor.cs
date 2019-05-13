@@ -107,12 +107,12 @@ public class PlayerMotor : NetworkBehaviour
     {
             jumpSound.Play();
             rb.AddForce(Vector3.up*400, ForceMode.Impulse);
-            villager.GetComponent<Animator>().SetBool("jumping", true);
+            GetComponent<Animator>().SetBool("jumping", true);
     }
 
     public override void OnStartLocalPlayer()  
     {  
-        NetworkAnimator netAnim = villager.GetComponent<NetworkAnimator>();  
+        NetworkAnimator netAnim = GetComponent<NetworkAnimator>();  
       
         netAnim.SetParameterAutoSend(0, true);  
         netAnim.SetParameterAutoSend(1, true);  
@@ -123,15 +123,14 @@ public class PlayerMotor : NetworkBehaviour
   
     public override void PreStartClient()  
     {   
-        NetworkAnimator netAnim = villager.GetComponent<NetworkAnimator>();  
+        NetworkAnimator netAnim = GetComponent<NetworkAnimator>();  
         netAnim.SetParameterAutoSend(0, true); 
         netAnim.SetParameterAutoSend(1, true);  
         netAnim.SetParameterAutoSend(2, true);  
         netAnim.SetParameterAutoSend(3, true);  
 
-    }  
-
-
+    } 
+    
 
     
     
@@ -146,10 +145,10 @@ public class PlayerMotor : NetworkBehaviour
                     
                 
                 if (!isWalking){
-                    villager.GetComponent<Animator>().SetBool("walking", true);
+                    GetComponent<Animator>().SetBool("walking", true);
                     isWalking = true;
                     
-                    villager.GetComponent<Animator>().SetBool("running", false);
+                    GetComponent<Animator>().SetBool("running", false);
                     isRunning = false;
                 }
             }  
@@ -157,19 +156,19 @@ public class PlayerMotor : NetworkBehaviour
             {
                 if (!isRunning)
                 {
-                    villager.GetComponent<Animator>().SetBool("running", true);
+                    GetComponent<Animator>().SetBool("running", true);
                     isRunning = true;
                     
-                    villager.GetComponent<Animator>().SetBool("walking", false);
+                    GetComponent<Animator>().SetBool("walking", false);
                     isWalking = false;
                 }
             }
         }
         else
         {
-                villager.GetComponent<Animator>().SetBool("walking", false);
+                GetComponent<Animator>().SetBool("walking", false);
                 isWalking = false;
-                villager.GetComponent<Animator>().SetBool("running", false);
+                GetComponent<Animator>().SetBool("running", false);
                 isRunning = false;
 
         }

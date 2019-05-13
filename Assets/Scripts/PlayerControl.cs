@@ -12,7 +12,16 @@ public class PlayerControl : NetworkBehaviour
     [SerializeField] private float speed = 5;
     [SerializeField] private float rotationSensitivity = 3;
     [SerializeField] private float cameraSensitivity = 3;
-
+    private float Xmov = 0;
+    private float Zmov = 0;
+    private Vector3 movHorizontal;
+    private Vector3 movVertical;
+    private Vector3 Velocity;
+    private float xrot;
+    private Vector3 xrotation;
+    private float yrot;
+    private Vector3 yrotation;
+    
     private PlayerMotor _motor;
 
 
@@ -26,23 +35,27 @@ public class PlayerControl : NetworkBehaviour
     {
 
         // get movement input from the keyboard
-        float Xmov = Input.GetAxisRaw("Horizontal");
-        float Zmov = Input.GetAxisRaw("Vertical");
+        if (!isServer)//Avoid inverted controls
+            Xmov = Input.GetAxis("Horizontal") * -1;
+        else 
+            Xmov = Input.GetAxis("Horizontal");
+
+        Zmov = Input.GetAxis("Vertical");
 
         //apply movement input
-        Vector3 movHorizontal = transform.right * Xmov;
-        Vector3 movVertical = transform.forward * Zmov;
-        Vector3 Velocity = (movHorizontal + movVertical).normalized * speed;
+        movHorizontal = transform.right * Xmov;
+        movVertical= transform.forward * Zmov;
+        Velocity = (movHorizontal + movVertical).normalized * speed;
 
         // get Yrotation input for turning 
-        float xrot = Input.GetAxisRaw("Mouse X");
+        xrot = Input.GetAxis("Mouse X");
 
         // apply Yrotation Inuput
-        Vector3 xrotation = new Vector3(0, xrot, 0) * rotationSensitivity;
+        xrotation = new Vector3(0, xrot, 0) * rotationSensitivity;
 
         // get and apply Yrotation input
-        float yrot = Input.GetAxisRaw("Mouse Y");
-        Vector3 yrotation = new Vector3(yrot, 0, 0) * cameraSensitivity;
+        yrot = Input.GetAxis("Mouse Y");
+        yrotation = new Vector3(yrot, 0, 0) * cameraSensitivity;
 
         _motor.Move(Velocity);
         _motor.Rotate(xrotation);

@@ -9,7 +9,7 @@ public class PlayerSetup : NetworkBehaviour
     private Camera sceneCamera;
     [SerializeField]private Camera playerCam ;
     [SerializeField] private GameObject graphics;
-    [SerializeField] private Behaviour[] comps;
+    [SerializeField] private Behaviour[] compsToDisable;
 
     private string role;
     
@@ -53,7 +53,7 @@ public class PlayerSetup : NetworkBehaviour
 
     void DisableComponent()
     {
-        foreach (var comp in comps)
+        foreach (var comp in compsToDisable)
         {
             comp.enabled = false;
         }

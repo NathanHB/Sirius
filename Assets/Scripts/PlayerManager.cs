@@ -51,7 +51,9 @@ public class PlayerManager : NetworkBehaviour
         }
         // disable some components to make the player dead but still here
         if (_col != null) _col.enabled = false;
+        
         gameMaster.CmdUnregisterPlayer(transform.name);
+        
         if (hasAuthority && sceneCam != null)
         {
             Debug.Log("dying with authority");

@@ -214,7 +214,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 75.6
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1365,6 +1365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2378259744287491122}
   - component: {fileID: 2378259744285956708}
+  - component: {fileID: 6342849557126264967}
   m_Layer: 10
   m_Name: persp1
   m_TagString: Untagged
@@ -1428,6 +1429,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!81 &6342849557126264967
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378259744287201298}
+  m_Enabled: 1
 --- !u!1 &2378259744287201300
 GameObject:
   m_ObjectHideFlags: 0
@@ -7517,12 +7526,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 3735964180399645316}
   graphics: {fileID: 5098969316704409415}
-  comps:
+  compsToDisable:
+  - {fileID: 5859244477101889055}
   - {fileID: 6716199013568440192}
-  - {fileID: 1061124818259896066}
-  - {fileID: 3670311522806495580}
-  - {fileID: 1650640498142196966}
   - {fileID: 3735964180399645316}
+  - {fileID: 2378259744285956708}
+  - {fileID: 3670311522806495580}
+  - {fileID: 6342849557126264967}
 --- !u!114 &7093928774355575773
 MonoBehaviour:
   m_ObjectHideFlags: 0

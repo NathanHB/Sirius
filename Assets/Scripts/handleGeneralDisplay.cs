@@ -8,6 +8,7 @@ public class handleGeneralDisplay : MonoBehaviour
 {
     private string role;
     private bool instructionsDisplayed = false;
+    private bool isTransformed = false;
 
     public Text textContainer;
     // Start is called before the first frame update
@@ -21,15 +22,46 @@ public class handleGeneralDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!timer.isDay && !instructionsDisplayed)
+        if (role=="Werewolf")
         {
-            textContainer.text = "Press F to turn into a  werewolf";
-            instructionsDisplayed = true;
+            if (werewolfActions.getTransformedState())
+            {
+                textContainer.text = "Press F to return to villager";
+                isTransformed = true;
+                return;
+            }
+            else if (!werewolfActions.getTransformedState() && isTransformed)
+            {
+                textContainer.text = "Press F to turn into a  werewolf";
+                isTransformed = false;
+                return;
+            }
+
+
+            if (!timer.isDay && !instructionsDisplayed)
+            {
+                textContainer.text = "Press F to turn into a  werewolf";
+
+                instructionsDisplayed = true;
+            }
+            else if (timer.isDay && instructionsDisplayed)
+            {
+                textContainer.text = "You are " + role + "!";
+                instructionsDisplayed = false;
+            }
         }
-        else if (timer.isDay && instructionsDisplayed)
+        else
         {
-            textContainer.text = "You are " + role + "!";
-            instructionsDisplayed = false;
+            if (!timer.isDay && !instructionsDisplayed)
+            {
+                textContainer.text = "RUN !";
+                instructionsDisplayed = true;
+            }
+            else if (timer.isDay && instructionsDisplayed)
+            {
+                textContainer.text = "You are " + role + "!";
+                instructionsDisplayed = false;
+            }
         }
 
     }

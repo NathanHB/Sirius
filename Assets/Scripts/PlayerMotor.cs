@@ -14,15 +14,13 @@ public class PlayerMotor : NetworkBehaviour
     [SerializeField] private GameObject villager;
     private handleAnimation animHandler;
     
-
-    
     private Rigidbody rb;
 
     private bool isWalking;
     private bool isRunning;
-    
-   
 
+    private bool isWerewolf;
+    private bool isTransformed;
 
     public AudioSource jumpSound;
     
@@ -34,6 +32,7 @@ public class PlayerMotor : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;//Prevent the damn rb to spin after colliding a wall
         animHandler = GetComponent<handleAnimation>();
+        isWerewolf = PlayerSetup.getRole()=="Werewolf";
     }
 
     private void Update()
@@ -137,31 +136,43 @@ public class PlayerMotor : NetworkBehaviour
     
     void handleAnimation(float velocity)
     {
+        bool isTransformed = werewolfActions.getTransformedState();
         if (!isLocalPlayer)
             return;
+        
+        
         if (velocity>0)
         {
-            if (velocity<6)
+            if (isWerewolf && isTransformed)
             {
-                    
-                
-                if (!isWalking){
-                    GetComponent<Animator>().SetBool("walking", true);
-                    isWalking = true;
-                    
-                    GetComponent<Animator>().SetBool("running", false);
-                    isRunning = false;
-                }
-            }  
-            else if (velocity > 6)
+                GetComponent<Animator>().SetBool("walking", true);
+                isWalking = true;
+                isRunning = false;
+            }
+            else
             {
-                if (!isRunning)
+                if (velocity < 6)
                 {
-                    GetComponent<Animator>().SetBool("running", true);
-                    isRunning = true;
-                    
-                    GetComponent<Animator>().SetBool("walking", false);
-                    isWalking = false;
+
+                    if (!isWalking)
+                    {
+                        GetComponent<Animator>().SetBool("walking", true);
+                        isWalking = true;
+
+                        GetComponent<Animator>().SetBool("running", false);
+                        isRunning = false;
+                    }
+                }
+                else if (velocity > 6)
+                {
+                    if (!isRunning)
+                    {
+                        GetComponent<Animator>().SetBool("running", true);
+                        isRunning = true;
+
+                        GetComponent<Animator>().SetBool("walking", false);
+                        isWalking = false;
+                    }
                 }
             }
         }

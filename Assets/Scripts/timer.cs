@@ -16,9 +16,9 @@ public class timer : MonoBehaviour
     
     public GameObject sun;
 
-    private static int dayDuration = 20;
+    private static int dayDuration = 10;
     private static int nightDuration = 60;
-    private static int votingProcessDuration = 10;
+    private static int votingProcessDuration = 5;
     // IMPORTANT NOTE : dayDuration includes votingProcessDuration
     
 

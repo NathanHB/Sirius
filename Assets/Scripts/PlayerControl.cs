@@ -34,10 +34,8 @@ public class PlayerControl : NetworkBehaviour
     public void Update()
     {
         // get movement input from the keyboard
-        if (!isServer)//Avoid inverted controls
-            Xmov = Input.GetAxis("Horizontal") * -1;
-        else 
-            Xmov = Input.GetAxis("Horizontal");
+
+        Xmov = Input.GetAxis("Horizontal");
 
         Zmov = Input.GetAxis("Vertical");
 

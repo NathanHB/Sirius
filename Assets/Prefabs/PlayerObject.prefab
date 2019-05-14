@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812640524439947032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.6890004, z: 0.168}
+  m_LocalPosition: {x: 0, y: 1.694, z: 0.088}
   m_LocalScale: {x: 0.5555556, y: 0.5555556, z: 0.5555556}
   m_Children: []
   m_Father: {fileID: 3746539257022288593}
@@ -4228,8 +4228,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2792305630715606711}
-  - component: {fileID: 6534240696994664641}
-  - component: {fileID: 3249669324165337778}
   m_Layer: 10
   m_Name: VillagerSkin
   m_TagString: Untagged
@@ -4254,61 +4252,6 @@ Transform:
   m_Father: {fileID: 3746539257022288593}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6534240696994664641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2794491694496911521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
---- !u!114 &3249669324165337778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2794491694496911521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
 --- !u!1 &2794493829985580603
 GameObject:
   m_ObjectHideFlags: 0
@@ -6987,7 +6930,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3746539257022288593}
   - component: {fileID: 2134467495062559342}
-  - component: {fileID: 6590252110446168673}
   m_Layer: 10
   m_Name: Graphics
   m_TagString: Untagged
@@ -7028,39 +6970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c09297e37f7048a193f6b6737e3e280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6590252110446168673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5098969316704409415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!1 &5427505029066617077
 GameObject:
   m_ObjectHideFlags: 0
@@ -7706,18 +7615,19 @@ GameObject:
   - component: {fileID: 6716199013568440192}
   - component: {fileID: 5859244477101889055}
   - component: {fileID: 1568597569318948210}
+  - component: {fileID: 9025171961697533150}
   - component: {fileID: 7093928774355575773}
   - component: {fileID: 2498551609493654985}
   - component: {fileID: 525169438986842605}
   - component: {fileID: 1089508495408373457}
+  - component: {fileID: 8150320341288631967}
   - component: {fileID: 5149463760113867904}
   - component: {fileID: 1061124818259896066}
   - component: {fileID: 2399569205201086335}
+  - component: {fileID: 2625637101180102481}
   - component: {fileID: 6630665111550540512}
-  - component: {fileID: 9025171961697533150}
   - component: {fileID: 1650640498142196966}
   - component: {fileID: 8357986022958147961}
-  - component: {fileID: 2625637101180102481}
   - component: {fileID: 7885093531989627615}
   m_Layer: 10
   m_Name: PlayerObject
@@ -7829,6 +7739,24 @@ MonoBehaviour:
   - {fileID: 8216465075854502120}
   - {fileID: 8679890058878611048}
   - {fileID: 2400565830900909324}
+--- !u!114 &9025171961697533150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215384032563771448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2aac619f08c404099d95f8507496c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  werewolfSkin: {fileID: 2378259744287201710}
+  villagerSkin: {fileID: 2794491694496911521}
+  villagerAvatar: {fileID: 9000000, guid: 976683fe4b47d4943b3ab5dfd2d5c1f8, type: 3}
+  werewolfAvatar: {fileID: 9000000, guid: 5eacf63a6724ec64098076eda7d539e8, type: 3}
+  villagerAnimator: {fileID: 9100000, guid: 9babb70d1540afb4a8624be968a6e4f9, type: 2}
+  werewolfAnimator: {fileID: 9100000, guid: 5624452e0a901934b9b01a38d658e298, type: 2}
 --- !u!114 &7093928774355575773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7924,6 +7852,26 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
+--- !u!114 &8150320341288631967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215384032563771448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 2378259744287491534}
+  m_ChildIndex: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &5149463760113867904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7974,6 +7922,25 @@ CapsuleCollider:
   m_Height: 1.9822943
   m_Direction: 1
   m_Center: {x: 0.012680988, y: 0.99114716, z: 0.029648809}
+--- !u!95 &2625637101180102481
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215384032563771448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 976683fe4b47d4943b3ab5dfd2d5c1f8, type: 3}
+  m_Controller: {fileID: 9100000, guid: 9babb70d1540afb4a8624be968a6e4f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &6630665111550540512
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8070,20 +8037,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9025171961697533150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7215384032563771448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c2aac619f08c404099d95f8507496c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  werewolfSkin: {fileID: 2378259744287201710}
-  villagerSkin: {fileID: 2794491694496911521}
 --- !u!114 &1650640498142196966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8139,25 +8092,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!95 &2625637101180102481
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7215384032563771448}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 976683fe4b47d4943b3ab5dfd2d5c1f8, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9babb70d1540afb4a8624be968a6e4f9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7885093531989627615
 MonoBehaviour:
   m_ObjectHideFlags: 0

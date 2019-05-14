@@ -17,16 +17,11 @@ public class handleTimerDisplay : NetworkBehaviour
     void Update()
     {
         (state, mainTimer) = timer.getStateAndTimeLeft();
-
         if (state == "dayVoting")
-            textTDP.text = mainTimer+ "s before end of vote";
+                textTDP.text = mainTimer + "s before end of vote";
         else if (state=="dayNotVoting")
             textTDP.text = mainTimer+ "s before night";
         else
-            textTDP.text = mainTimer+ "s before end of night";
-            
-
- 
+            textTDP.text = mainTimer+ "s before end of night";   
     }
-
 }

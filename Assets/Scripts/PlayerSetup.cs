@@ -11,7 +11,7 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField] private GameObject graphics;
     [SerializeField] private Behaviour[] compsToDisable;
 
-    private string role;
+    private static string role;
     
     void Start()
     {
@@ -62,5 +62,10 @@ public class PlayerSetup : NetworkBehaviour
     void setRemoteLayer()
     {
         gameObject.layer = LayerMask.NameToLayer("RemotePlayer");
+    }
+
+    public static string getRole()
+    {
+        return role;
     }
 }

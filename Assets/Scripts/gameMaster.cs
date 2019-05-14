@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using Random = System.Random;
 
 public class gameMaster : NetworkBehaviour
 {
@@ -11,16 +12,8 @@ public class gameMaster : NetworkBehaviour
     private static Dictionary<string, (PlayerManager, string)> players = new Dictionary<string, (PlayerManager, string)>();
 
     [SerializeField] private static int wolfneeded = 2;
-    private static int playersNeeded = 2;
+    private static int playersNeeded = 1;
     private static int wolfCount = 0;
-
-
-    private void Start()
-    {
-
-    }
-
-
 
     public static string CmdRegisterPlayer(string netID, PlayerManager player)
     {
@@ -49,7 +42,7 @@ public class gameMaster : NetworkBehaviour
 
     void OnGUI()
     {
-        GUILayout.BeginArea(new Rect(200, 200, 200, 500));
+        GUILayout.BeginArea(new Rect(10, 10, 200, 500));
         GUILayout.BeginVertical();
 
         foreach (var player in players)
@@ -71,9 +64,18 @@ public class gameMaster : NetworkBehaviour
         }
         else
         {
+            Random rnd = new Random();
+            int choose = rnd.Next(0, 2);
             // We have a chance to be a wolf
-            wolfCount++;
-            return "Werewolf";
+
+            if (choose == 0)
+            {
+                wolfCount++;
+                return "Werewolf";
+            }
+
+            return "Villager";
+
         }
     }
 

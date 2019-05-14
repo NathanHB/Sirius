@@ -49,6 +49,7 @@
           <e p="handle_ui_ingame.cs" t="Include" />
           <e p="handleAnimation.cs" t="Include" />
           <e p="handleGame.cs" t="Include" />
+          <e p="handleGeneralDisplay.cs" t="Include" />
           <e p="handleTimerDisplay.cs" t="Include" />
           <e p="handleVolume.cs" t="Include" />
           <e p="HostGame.cs" t="Include" />
@@ -68,7 +69,7 @@
           <e p="switch_scene.cs" t="Include" />
           <e p="timer.cs" t="Include" />
           <e p="villager.cs" t="Include" />
-          <e p="werewolf.cs" t="Include" />
+          <e p="werewolfActions.cs" t="Include" />
           <e p="WolfAttack.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">

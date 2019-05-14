@@ -102,14 +102,6 @@ public class PlayerMotor : NetworkBehaviour
         
     }
 
-
-    public void jump()
-    {
-            jumpSound.Play();
-            rb.AddForce(Vector3.up*400, ForceMode.Impulse);
-            GetComponent<Animator>().SetBool("jumping", true);
-    }
-
     public override void OnStartLocalPlayer()  
     {  
         NetworkAnimator netAnim = GetComponent<NetworkAnimator>();  
@@ -130,7 +122,16 @@ public class PlayerMotor : NetworkBehaviour
         netAnim.SetParameterAutoSend(3, true);  
 
     } 
-    
+
+
+    public void jump()
+    {
+            jumpSound.Play();
+            rb.AddForce(Vector3.up*400, ForceMode.Impulse);
+            GetComponent<Animator>().SetBool("jumping", true);
+    }
+
+
 
     
     

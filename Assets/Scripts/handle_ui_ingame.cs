@@ -43,8 +43,7 @@ public class handle_ui_ingame : MonoBehaviour
             motor.rotation=Vector3.zero;
             motor.velocity=Vector3.zero;
             motor.camRot=Vector3.zero;            
-        }
-
+        }   
     }
 
 

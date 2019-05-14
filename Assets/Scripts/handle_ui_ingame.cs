@@ -2,7 +2,7 @@
 
 public class handle_ui_ingame : MonoBehaviour
 {
-    public bool gamePaused;
+    private bool gamePaused;
  
     //public static GameObject PauseMenuUi;
     //public static GameObject PauseSettingsUi;
@@ -19,9 +19,6 @@ public class handle_ui_ingame : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        
-        PauseMenuUi = FindObjectsOfType<Canvas>()[1].gameObject;
-        PauseSettingsUi = FindObjectsOfType<Canvas>()[2].gameObject;
         
         PauseMenuUi.SetActive(false);
         PauseSettingsUi.SetActive(false);

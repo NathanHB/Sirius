@@ -6973,7 +6973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec86e211489903d4784a9f8785d55c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamePaused: 0
   PauseMenuUi: {fileID: 1443463837875981586}
   PauseSettingsUi: {fileID: 9125879610955968795}
   player: {fileID: 7215384032563771448}
@@ -7536,6 +7535,9 @@ MonoBehaviour:
   - {fileID: 6716199013568440192}
   - {fileID: 3735964180399645316}
   - {fileID: 3670311522806495580}
+  - {fileID: 5054186436935848041}
+  - {fileID: 8216465075854502120}
+  - {fileID: 8679890058878611048}
 --- !u!114 &7093928774355575773
 MonoBehaviour:
   m_ObjectHideFlags: 0

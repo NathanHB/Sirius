@@ -9,6 +9,9 @@ public class handleGeneralDisplay : MonoBehaviour
     private string role;
     private bool instructionsDisplayed = false;
     private bool isTransformed = false;
+    private bool isVisionDark = false;
+
+    public Canvas darkVision;
 
     public Text textContainer;
     // Start is called before the first frame update
@@ -62,6 +65,18 @@ public class handleGeneralDisplay : MonoBehaviour
                 textContainer.text = "You are " + role + "!";
                 instructionsDisplayed = false;
             }
+
+            if (!timer.isDay && !isVisionDark)
+            {
+                darkVision.gameObject.SetActive(true);
+                isVisionDark = true;
+            }
+            else if(timer.isDay && isVisionDark)
+            {
+                darkVision.gameObject.SetActive(false);
+                isVisionDark = false;
+            }
+                
         }
 
     }

@@ -91,4 +91,5 @@ public class timer : MonoBehaviour
         RenderSettings.skybox = skyboxDay;
         RenderSettings.fogDensity = 0.02f;
     }
+
 }

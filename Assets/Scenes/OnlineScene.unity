@@ -29102,14 +29102,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bucket_1_1 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4050339960111016, guid: 20a2edbb5aaf6bf4a932566240f09151, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 4050339960111016, guid: 20a2edbb5aaf6bf4a932566240f09151, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 4153951137213078, guid: 20a2edbb5aaf6bf4a932566240f09151, type: 3}
       propertyPath: m_LocalPosition.x
       value: -214.26166
@@ -29165,6 +29157,14 @@ PrefabInstance:
     - target: {fileID: 4153951137213078, guid: 20a2edbb5aaf6bf4a932566240f09151, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050339960111016, guid: 20a2edbb5aaf6bf4a932566240f09151, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050339960111016, guid: 20a2edbb5aaf6bf4a932566240f09151, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a2edbb5aaf6bf4a932566240f09151, type: 3}
@@ -44810,12 +44810,12 @@ PrefabInstance:
     - target: {fileID: 2790415209827404046, guid: 1ea44cb7207f2c044b75ad698b2cb2ef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40.98
+      value: 41.038
       objectReference: {fileID: 0}
     - target: {fileID: 2790415209827404046, guid: 1ea44cb7207f2c044b75ad698b2cb2ef,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 40.2
+      value: 43.3
       objectReference: {fileID: 0}
     - target: {fileID: 2790415209827404046, guid: 1ea44cb7207f2c044b75ad698b2cb2ef,
         type: 3}

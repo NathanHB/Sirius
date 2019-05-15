@@ -12,7 +12,7 @@ public class gameMaster : NetworkBehaviour
     private static Dictionary<string, (PlayerManager, string)> players = new Dictionary<string, (PlayerManager, string)>();
 
     [SerializeField] private static int wolfneeded = 2;
-    private static int playersNeeded = 2;
+    private static int playersNeeded = 1;
     private static int wolfCount = 0;
 
     public static string CmdRegisterPlayer(string netID, PlayerManager player)

@@ -17,9 +17,8 @@ public class werewolfActions : NetworkBehaviour
     public RuntimeAnimatorController werewolfAnimator;
     public RuntimeAnimatorController villagerAnimator;
 
-
-
-
+    public Camera playerCamera;
+    
     private Animator anim;
 
     private float scdTimer;
@@ -46,6 +45,9 @@ public class werewolfActions : NetworkBehaviour
             }
 
             scdTimer += Time.deltaTime;
+
+            if (timer.isDay && isTransformed)
+                TransformToVillager();
         }
     }
     
@@ -65,6 +67,9 @@ public class werewolfActions : NetworkBehaviour
         anim.runtimeAnimatorController = werewolfAnimator as RuntimeAnimatorController;
         
         CmdSetActiveToWerewolf();
+
+        playerCamera.transform.localPosition = new Vector3(0,1.9f, 1);
+
     }
 
     void TransformToVillager()
@@ -77,6 +82,9 @@ public class werewolfActions : NetworkBehaviour
         anim.runtimeAnimatorController = villagerAnimator as RuntimeAnimatorController;
         
         CmdSetActiveToVillager();
+        
+        playerCamera.transform.localPosition = new Vector3(0,1.7f, 0.15f);
+
     }
 
     [Command]

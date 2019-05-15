@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
 using UnityEngine.Networking;
 
 
@@ -10,8 +11,10 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField]private Camera playerCam ;
     [SerializeField] private GameObject graphics;
     [SerializeField] private Behaviour[] compsToDisable;
+    
 
     private static string role;
+    private static string subClass = "";
     
     void Start()
     {
@@ -67,5 +70,29 @@ public class PlayerSetup : NetworkBehaviour
     public static string getRole()
     {
         return role;
+    }
+
+    public static void addSubClass(string sClass)
+    {
+        switch (sClass)
+        {
+            case "rifleContent":
+                subClass = "hunter";
+                break;
+            case "potion":
+                subClass = "wizard";
+                break;
+            case "teddyBear":
+                subClass = "littleGirl";
+                break;
+            default:
+                subClass = "";
+                break;
+        }  
+    }
+
+    public static string getSubClass()
+    {
+        return subClass;
     }
 }

@@ -12,6 +12,9 @@ public class handleGeneralDisplay : MonoBehaviour
     private bool isVisionDark = false;
 
     public Canvas darkVision;
+    private bool hasSubClass = false;
+    private string subClass = "";
+    private string currentState = "";
 
     public Text textContainer;
     // Start is called before the first frame update
@@ -25,6 +28,37 @@ public class handleGeneralDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        currentState = timer.getStateAndTimeLeft().Item1;
+        
+        if (!hasSubClass)
+        {
+            string sClass = PlayerSetup.getSubClass();
+            if (sClass.Length > 0)
+            {
+                hasSubClass = true;
+                subClass = sClass;
+            }      
+        }
+
+        if (currentState=="preState")
+        {
+            textContainer.text = "You are "+PlayerSetup.getRole()+" !";
+            instructionsDisplayed = true;
+            return;             
+        }
+
+
+        if (currentState == "dayVoting")
+        {
+           textContainer.text = "Please vote for a suspect player to kill";
+           instructionsDisplayed = true;
+           return; 
+        }
+        
+        Debug.Log(role);
+        
+        
         if (role=="Werewolf")
         {
             if (werewolfActions.getTransformedState())
@@ -49,24 +83,50 @@ public class handleGeneralDisplay : MonoBehaviour
             }
             else if (timer.isDay && instructionsDisplayed)
             {
-                textContainer.text = "You are " + role + "!";
+                textContainer.text = "You are Werewolf!";
                 instructionsDisplayed = false;
             }
         }
         else
         {
-            if (!timer.isDay && !instructionsDisplayed)
+            if (!hasSubClass)
             {
-                textContainer.text = "RUN !";
-                instructionsDisplayed = true;
+                 if (currentState=="night" && !instructionsDisplayed)
+                 {
+                  textContainer.text = "RUN !";
+                  instructionsDisplayed = true;
+                 }
+                 else if (currentState=="dayNotVoting" && instructionsDisplayed)
+                 {
+                  textContainer.text = "You are villager!";
+                  instructionsDisplayed = false;
+                 }
             }
-            else if (timer.isDay && instructionsDisplayed)
+            else
             {
-                textContainer.text = "You are " + role + "!";
-                instructionsDisplayed = false;
+                if (currentState=="night" && !instructionsDisplayed)
+                {
+                    if (subClass == "hunter")
+                        textContainer.text = "You are a hunter. You can kill a werewolf by left-clicking";
+                    else if (subClass == "wizard")
+                        textContainer.text = "You are a wizard. You will be able to save or kill players";
+                    else
+                        textContainer.text = "You are a little girl. You can run faster and see better at night";  
+                    
+                    instructionsDisplayed = true;
+                }
+                else if (currentState=="dayNotVoting")
+                {
+                    textContainer.text = "You are a "+subClass+"!";
+                    instructionsDisplayed = false;
+                }   
             }
+           
+            
+            
+            
 
-            if (!timer.isDay && !isVisionDark)
+            if (currentState=="night" && !isVisionDark)
             {
                 darkVision.gameObject.SetActive(true);
                 isVisionDark = true;

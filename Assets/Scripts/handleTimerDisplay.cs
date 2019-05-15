@@ -21,7 +21,9 @@ public class handleTimerDisplay : NetworkBehaviour
                 textTDP.text = mainTimer + "s before end of vote";
         else if (state=="dayNotVoting")
             textTDP.text = mainTimer+ "s before night";
+        else if (state == "night")
+            textTDP.text = mainTimer+ "s before end of night";
         else
-            textTDP.text = mainTimer+ "s before end of night";   
+            textTDP.text = "Waiting for all players to connect";
     }
 }

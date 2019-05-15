@@ -31,8 +31,15 @@ public class werewolfActions : NetworkBehaviour
     }
     void Update()
     {
+        
         if (isLocalPlayer)
         {
+            if (timer.isDay && isTransformed)
+            {
+                TransformToVillager();
+                return;
+            }
+
             if (Input.GetKeyDown(KeyCode.F) && isWerewolf && scdTimer > 1)
             {
                 if (!isTransformed)
@@ -46,8 +53,7 @@ public class werewolfActions : NetworkBehaviour
 
             scdTimer += Time.deltaTime;
 
-            if (timer.isDay && isTransformed)
-                TransformToVillager();
+
         }
     }
     

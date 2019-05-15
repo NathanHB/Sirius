@@ -12,7 +12,7 @@ public class gameMaster : NetworkBehaviour
     private static Dictionary<string, (PlayerManager, string)> players = new Dictionary<string, (PlayerManager, string)>();
 
     [SerializeField] private static int wolfneeded = 2;
-    private static int playersNeeded = 1;
+    private static int playersNeeded = 2;
     private static int wolfCount = 0;
 
     public static string CmdRegisterPlayer(string netID, PlayerManager player)
@@ -62,8 +62,7 @@ public class gameMaster : NetworkBehaviour
             // role will be Villager
             return "Villager";
         }
-        else
-        {
+        
             Random rnd = new Random();
             int choose = rnd.Next(0, 2);
             // We have a chance to be a wolf
@@ -75,8 +74,6 @@ public class gameMaster : NetworkBehaviour
             }
 
             return "Villager";
-
-        }
     }
 
     public static bool allPlayersConnected()

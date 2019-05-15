@@ -1104,7 +1104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 187, y: 29.6}
+  m_AnchoredPosition: {x: 96.7, y: 24}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5698982472063817914
@@ -1142,7 +1142,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 7
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -7786,6 +7786,7 @@ MonoBehaviour:
   - {fileID: 8216465075854502120}
   - {fileID: 8679890058878611048}
   - {fileID: 2400565830900909324}
+  - {fileID: 5344577024842913334}
 --- !u!114 &9025171961697533150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7934,12 +7935,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectableTagWerewolf: Werewolf
   selectableTagItem: Item
-  other: {fileID: 2100000, guid: 6e1d36c4bbd37d54f9ea183e4f5fd656, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: a24037aa2dae5b145b048dcaf948032a, type: 2}
   walnut: {fileID: 2100000, guid: fc10df5465651bc49ad34829dc3185db, type: 2}
   walnutOutlined: {fileID: 2100000, guid: 192085860b83c1f4999bc71a34be45f2, type: 2}
   potion: {fileID: 2100000, guid: 09869e8819bb3b84a9109d9a8c92848c, type: 2}
   potionOutlined: {fileID: 2100000, guid: 623795e7315aa08488c4ec5275284d82, type: 2}
+  teddybear: {fileID: 2100000, guid: 7d75d32374745ec4786bea780b633057, type: 2}
+  teddybearOutlined: {fileID: 2100000, guid: 6e09ac837fb7bc34d80a1fc91752833b, type: 2}
   cam: {fileID: 3735964180399645316}
 --- !u!114 &1061124818259896066
 MonoBehaviour:
@@ -8304,7 +8305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -193.29999, y: 27.800003}
+  m_AnchoredPosition: {x: -148, y: 27.800003}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1511366675654651218
@@ -8342,7 +8343,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
-    m_Alignment: 7
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -8664,6 +8665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271667865695698600, guid: 374734ce19c482f4d8004c27e55725f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 258931615031116285, guid: 374734ce19c482f4d8004c27e55725f0,
         type: 3}

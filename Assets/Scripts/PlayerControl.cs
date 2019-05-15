@@ -21,6 +21,8 @@ public class PlayerControl : NetworkBehaviour
     private Vector3 xrotation;
     private float yrot;
     private Vector3 yrotation;
+    private bool isWerewolf;
+    
     
     private PlayerMotor _motor;
 
@@ -28,7 +30,7 @@ public class PlayerControl : NetworkBehaviour
     void Start()
     {     
         _motor = GetComponent<PlayerMotor>();
-
+        isWerewolf = PlayerSetup.getRole()=="Werewolf";
     }
 
     public void Update()
@@ -86,7 +88,13 @@ public class PlayerControl : NetworkBehaviour
     void run()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
-            speed = 12;
+        {
+            if (isWerewolf && werewolfActions.getTransformedState())
+                speed = 12;
+            else
+                speed = 15;
+        }
+
         if (Input.GetKeyUp(KeyCode.LeftShift))
             speed = 5;
     }

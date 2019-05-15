@@ -15,19 +15,25 @@ public class timer : MonoBehaviour
     public Material skyboxDay;
     
     public GameObject sun;
+    public GameObject[] items;
 
     private static int dayDuration = 10;
-    private static int nightDuration = 60;
+    private static int nightDuration = 30;
     private static int votingProcessDuration = 5;
     // IMPORTANT NOTE : dayDuration includes votingProcessDuration
     
 
     public static bool isDay = true;
     private static bool isVoting = false;
+    private bool firstDay;
+    private string state;
     void Start()
     {
-        mTimer = 0;
+        mTimer = -1;
         start = false;
+        items = GameObject.FindGameObjectsWithTag("Item");
+        firstDay = true;
+        state = "preState";
     }
 
     // Update is called once per frame
@@ -38,28 +44,48 @@ public class timer : MonoBehaviour
         else
         {
             if (gameMaster.allPlayersConnected())
+            {
+                mTimer = 0;
                 start = true;
+                state = "dayNotVoting";
+            }
+            else
+                return;
+        }
+        
+
+        if (firstDay)
+        {
+            mTimer += votingProcessDuration;
+            firstDay = false;
+            return;
         }
 
-        if (isDay && mTimer>dayDuration)
+        if (state=="dayNotVoting" && mTimer>dayDuration)
         {
             disableSun();
+            disableItems();
             isDay = false;
+            state = "night";
             mTimer = 0;
-        }
-        else if (!isDay && mTimer > nightDuration)
+        } 
+        else if (state=="night" && mTimer > nightDuration)
         {
+            items = GameObject.FindGameObjectsWithTag("Item");
             enableSun();
+            enableItems();
             isDay = true;
+            state = "dayVoting";
             mTimer = 0;
         }
-        else if (isDay && mTimer < votingProcessDuration)
+        else if (state == "dayVoting" && mTimer < votingProcessDuration)
         {
             if (!isVoting)
                 isVoting = true;
         }
-        else if(isDay && mTimer > votingProcessDuration)
+        else if(state == "dayVoting" && mTimer > votingProcessDuration)
         {
+            state = "dayNotVoting";
             if (isVoting)
                 isVoting = false;
         }
@@ -67,6 +93,9 @@ public class timer : MonoBehaviour
 
     public static (string, int) getStateAndTimeLeft()
     {
+        if (mTimer==-1)
+            return ("preState", 0);
+        
         if (isDay)
         {
             if (isVoting)
@@ -90,6 +119,18 @@ public class timer : MonoBehaviour
         sun.GetComponent<Light>().intensity = 1;
         RenderSettings.skybox = skyboxDay;
         RenderSettings.fogDensity = 0.02f;
+    }
+
+    public void disableItems()
+    {
+        foreach (var item in items)
+            item.SetActive(false);
+    }
+
+    public void enableItems()
+    {
+        foreach (var item in items)
+            item.SetActive(true);  
     }
 
 }

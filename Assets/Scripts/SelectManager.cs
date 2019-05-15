@@ -8,30 +8,27 @@ public class SelectManager : MonoBehaviour
     // Here objects w/ tag 'Werewolf' change their Material when we point them.
     [SerializeField] private string selectableTagWerewolf = "Werewolf";
     [SerializeField] private string selectableTagItem = "Item";
-    [SerializeField] private Material other;
-    [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material walnut;
     [SerializeField] private Material walnutOutlined;
     [SerializeField] private Material potion;
     [SerializeField] private Material potionOutlined;
+    [SerializeField] private Material teddybear;
+    [SerializeField] private Material teddybearOutlined;
     [SerializeField] private Camera cam;
-
-    private Transform _selection;
+    private bool isWerewolf;
 
     private List<Transform> lookedObjects = new List<Transform>();
-    
+
+    private void Start()
+    {
+        isWerewolf = PlayerSetup.getRole() == "Werewolf";
+    }
+
     void Update()
     {
+        if (isWerewolf)
+            return;
 
-        
-        if (_selection != null)
-        {
-            var selectRenderer = _selection.GetComponent<Renderer>();
-            selectRenderer.material = defaultMaterial;
-            _selection = null;
-        }
-            
-            
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -41,41 +38,45 @@ public class SelectManager : MonoBehaviour
             {
                  foreach (var elt in lookedObjects)
                 {
-                    if (elt.name=="rifleContent")
-                        elt.GetComponent<Renderer>().material=walnut;
-                    else if (elt.name=="potion")
-                        elt.GetComponent<Renderer>().material=potion;
+                    if (elt.name == "rifleContent")
+                        elt.GetComponent<Renderer>().material = walnut;
+                    else if (elt.name == "potion")
+                        elt.GetComponent<Renderer>().material = potion;
+                    else if (elt.name == "teddyBear")
+                        elt.GetComponent<Renderer>().material = teddybear;
                 }
             }
             
-
             lookedObjects.Clear();
 
-            var select = hit.transform;
-            if (select.CompareTag(selectableTagWerewolf))
-            {
-                var selectRenderer = select.GetComponent<Renderer>();
-                if (selectRenderer != null)
-                {
-                    selectRenderer.material = other;
-                }
-
-                _selection = select;
-            }
-            else if (select.CompareTag(selectableTagItem))
+            Transform select = hit.transform;
+            
+            switchClass(select);
+   
+            if (select.CompareTag(selectableTagItem))
             {
                 lookedObjects.Add(select);
                 if (select.name=="rifleContent")
                     select.GetComponent<Renderer>().material = walnutOutlined;
-                else if (select.name=="potion")
-                    select.GetComponent<Renderer>().material=potionOutlined;
-                
-                   
-         
+                else if (select.name == "potion")
+                    select.GetComponent<Renderer>().material = potionOutlined;
+                else if (select.name=="teddyBear")                   
+                    select.GetComponent<Renderer>().material = teddybearOutlined;
             }
             
             
         }
 
+    }
+
+
+    void switchClass(Transform select)
+    {
+        if (select.CompareTag(selectableTagItem) && Input.GetKeyDown(KeyCode.F) && PlayerSetup.getSubClass().Length==0)
+        {
+           PlayerSetup.addSubClass(select.name);
+           select.tag = "Untagged";
+           select.parent.gameObject.SetActive(false);
+        }   
     }
 }

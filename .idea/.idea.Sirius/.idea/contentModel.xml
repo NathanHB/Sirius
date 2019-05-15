@@ -66,6 +66,7 @@
           <e p="set_default_value.cs" t="Include" />
           <e p="SetSunLight.cs" t="Include" />
           <e p="SkinManager.cs" t="Include" />
+          <e p="subClass handler.cs" t="Include" />
           <e p="switch_scene.cs" t="Include" />
           <e p="timer.cs" t="Include" />
           <e p="villager.cs" t="Include" />

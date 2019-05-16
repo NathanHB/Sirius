@@ -752,19 +752,62 @@ PrefabInstance:
     - target: {fileID: 6032455263330805832, guid: 0aed3dba580c249238bb8f5000765a36,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032455263330805832, guid: 0aed3dba580c249238bb8f5000765a36,
+        type: 3}
+      propertyPath: showGUI
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032455263330805833, guid: 0aed3dba580c249238bb8f5000765a36,
+        type: 3}
+      propertyPath: m_SpawnPrefabs.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6032455263330805833, guid: 0aed3dba580c249238bb8f5000765a36,
         type: 3}
       propertyPath: m_SpawnPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 1492193827487549807, guid: 1089346ecf710204a8a273b8a138eb1b,
+      objectReference: {fileID: 8406560732735823113, guid: ae68e7507bc7a8343a7082d8c7629698,
         type: 3}
     - target: {fileID: 6032455263330805833, guid: 0aed3dba580c249238bb8f5000765a36,
         type: 3}
       propertyPath: m_PlayerSpawnMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032455263330805833, guid: 0aed3dba580c249238bb8f5000765a36,
+        type: 3}
+      propertyPath: m_RunInBackground
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032455263330805833, guid: 0aed3dba580c249238bb8f5000765a36,
+        type: 3}
+      propertyPath: m_CustomConfig
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6032455263330805833, guid: 0aed3dba580c249238bb8f5000765a36,
+        type: 3}
+      propertyPath: m_UseSimulator
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6032455263330805833, guid: 0aed3dba580c249238bb8f5000765a36,
+        type: 3}
+      propertyPath: m_SpawnPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1492193827487549807, guid: 1089346ecf710204a8a273b8a138eb1b,
+        type: 3}
+    - target: {fileID: 6032455263330805833, guid: 0aed3dba580c249238bb8f5000765a36,
+        type: 3}
+      propertyPath: m_SpawnPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 7215384032563771448, guid: 03f504a1d3ee44e3aa40514a33cd15a5,
+        type: 3}
+    - target: {fileID: 6032455263330805833, guid: 0aed3dba580c249238bb8f5000765a36,
+        type: 3}
+      propertyPath: m_SpawnPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 8678482794598063855, guid: 3618b7369d68a491695cf4589aefc056,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aed3dba580c249238bb8f5000765a36, type: 3}
 --- !u!1 &566279311
@@ -1128,7 +1171,7 @@ MonoBehaviour:
     i13: 0
     i14: 0
     i15: 0
-  m_ServerOnly: 0
+  m_ServerOnly: 1
   m_LocalPlayerAuthority: 0
 --- !u!1 &751205838
 GameObject:
@@ -1379,7 +1422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000071825134}
+  m_AnchoredPosition: {x: 0, y: -0.000012232824}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &962173047

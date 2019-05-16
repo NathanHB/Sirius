@@ -16,7 +16,7 @@ public class JoinGame : MonoBehaviour
     
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
         _networkManager = NetworkManager.singleton;
         if(_networkManager.matchMaker == null) _networkManager.StartMatchMaker();
 

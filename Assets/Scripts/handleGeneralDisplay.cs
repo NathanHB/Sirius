@@ -11,6 +11,7 @@ public class handleGeneralDisplay : MonoBehaviour
     private bool instructionsDisplayed = false;
     private bool isTransformed = false;
     private bool isVisionDark = false;
+    private bool isIdDisplayEnabled = true;
 
     public GameObject player;
 
@@ -24,7 +25,7 @@ public class handleGeneralDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        role = PlayerSetup.getRole();
+        role = player.tag;
         string toDp = player.name;
         toDp = 'P' + toDp.Substring(1);
         idDisplay.text = toDp;
@@ -36,7 +37,7 @@ public class handleGeneralDisplay : MonoBehaviour
     {
 
         currentState = timer.getStateAndTimeLeft().Item1;
-        
+                
         if (!hasSubClass)
         {
             string sClass = PlayerSetup.getSubClass();
@@ -53,15 +54,32 @@ public class handleGeneralDisplay : MonoBehaviour
             instructionsDisplayed = true;
             return;             
         }
-
+        
+        if (currentState == "night" && isIdDisplayEnabled)
+        {
+            idDisplay.gameObject.SetActive(false);
+            isIdDisplayEnabled = false;
+        }
 
         if (currentState == "dayVoting")
         {
            textContainer.text = "Please vote for a suspect player to kill";
            instructionsDisplayed = true;
-           return; 
+           if (!isIdDisplayEnabled)
+           {
+               idDisplay.gameObject.SetActive(true);
+               isIdDisplayEnabled = true;
+           }
+           
+           if( isVisionDark)
+           {
+               darkVision.gameObject.SetActive(false);
+               isVisionDark = false;
+           }
+           return;
         }
         
+
         // Debug.Log(role);
         
         
@@ -73,7 +91,7 @@ public class handleGeneralDisplay : MonoBehaviour
                 isTransformed = true;
                 return;
             }
-            else if (!werewolfActions.getTransformedState() && isTransformed)
+            if (!werewolfActions.getTransformedState() && isTransformed)
             {
                 textContainer.text = "Press F to turn into a  werewolf";
                 isTransformed = false;
@@ -127,23 +145,17 @@ public class handleGeneralDisplay : MonoBehaviour
                     instructionsDisplayed = false;
                 }   
             }
-           
-            
-            
-            
+                
 
             if (currentState=="night" && !isVisionDark)
             {
                 darkVision.gameObject.SetActive(true);
                 isVisionDark = true;
             }
-            else if(timer.isDay && isVisionDark)
-            {
-                darkVision.gameObject.SetActive(false);
-                isVisionDark = false;
-            }
+
                 
         }
+
 
     }
 }

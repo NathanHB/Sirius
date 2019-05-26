@@ -1263,12 +1263,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271667865488847113}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -8.2, y: -49.7, z: -0.01}
+  m_LocalPosition: {x: -8.2, y: 5.3999977, z: -0.01}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2775907228433094934}
-  m_Father: {fileID: 9111588464727114037}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &406713101613155685
 Transform:
@@ -15708,7 +15708,7 @@ GameObject:
   - component: {fileID: 2520152118741815552}
   m_Layer: 0
   m_Name: teddyBear
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19067,12 +19067,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2634590339823463964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.972656, y: -54.46, z: 31.346405}
+  m_LocalPosition: {x: 30.972656, y: 0.6399994, z: 31.346405}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 5293818681830012528}
-  m_Father: {fileID: 9111588464727114037}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6163234644444601729
 BoxCollider:
@@ -19984,12 +19984,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6403621219202088288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2940414, y: -54.84, z: 3.05}
+  m_LocalPosition: {x: -2.2940414, y: 0.25999832, z: 3.05}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 3075210040118260152}
-  m_Father: {fileID: 9111588464727114037}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &8172113712929651253
 MeshRenderer:
@@ -47924,7 +47924,7 @@ Transform:
   m_LocalScale: {x: 2.3559463, y: 2.3559465, z: 2.355947}
   m_Children: []
   m_Father: {fileID: 9111588464727114037}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &9111588463480673898
 Transform:
@@ -49346,7 +49346,7 @@ RectTransform:
   - {fileID: 9111588464034771616}
   - {fileID: 9111588462978308855}
   m_Father: {fileID: 9111588464727114037}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -73555,12 +73555,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 55.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6132477320487267910}
   - {fileID: 9111588464882822907}
   - {fileID: 9111588463479794686}
   - {fileID: 9111588463561337558}
-  - {fileID: 8100681646875976314}
-  - {fileID: 258931615091363420}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76313,7 +76310,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 9111588464727114037}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &9111588464882822908
 Light:

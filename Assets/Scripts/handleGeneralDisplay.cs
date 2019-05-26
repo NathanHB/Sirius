@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,17 +12,22 @@ public class handleGeneralDisplay : MonoBehaviour
     private bool isTransformed = false;
     private bool isVisionDark = false;
 
+    public GameObject player;
+
     public Canvas darkVision;
     private bool hasSubClass = false;
     private string subClass = "";
     private string currentState = "";
 
+    public TextMesh idDisplay;
     public Text textContainer;
     // Start is called before the first frame update
     void Start()
     {
         role = PlayerSetup.getRole();
-
+        string toDp = player.name;
+        toDp = 'P' + toDp.Substring(1);
+        idDisplay.text = toDp;
         textContainer.text = "You are "+role+"!";
     }
 
@@ -56,7 +62,7 @@ public class handleGeneralDisplay : MonoBehaviour
            return; 
         }
         
-        Debug.Log(role);
+        // Debug.Log(role);
         
         
         if (role=="Werewolf")

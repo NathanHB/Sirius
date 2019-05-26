@@ -34,6 +34,8 @@ public class timer : MonoBehaviour
         items = GameObject.FindGameObjectsWithTag("Item");
         firstDay = true;
         state = "preState";
+        
+        Debug.Log("items : "+items.Length);
     }
 
     // Update is called once per frame
@@ -63,6 +65,7 @@ public class timer : MonoBehaviour
 
         if (state=="dayNotVoting" && mTimer>dayDuration)
         {
+            Debug.Log("NONOO");
             disableSun();
             disableItems();
             isDay = false;

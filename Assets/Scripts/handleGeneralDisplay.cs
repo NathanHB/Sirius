@@ -16,6 +16,8 @@ public class handleGeneralDisplay : MonoBehaviour
     public GameObject player;
 
     public Canvas darkVision;
+    public Canvas voteCanvas;
+
     private bool hasSubClass = false;
     private string subClass = "";
     private string currentState = "";
@@ -30,12 +32,12 @@ public class handleGeneralDisplay : MonoBehaviour
         toDp = 'P' + toDp.Substring(1);
         idDisplay.text = toDp;
         textContainer.text = "You are "+role+"!";
+        voteCanvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
         currentState = timer.getStateAndTimeLeft().Item1;
                 
         if (!hasSubClass)
@@ -76,12 +78,14 @@ public class handleGeneralDisplay : MonoBehaviour
                darkVision.gameObject.SetActive(false);
                isVisionDark = false;
            }
+
+           if (!voteCanvas.gameObject.activeSelf)
+               voteCanvas.gameObject.SetActive(true);   
            return;
         }
-        
 
-        // Debug.Log(role);
-        
+        if (currentState == "dayNotVoting" && voteCanvas.gameObject.activeSelf)
+                voteCanvas.gameObject.SetActive(false); 
         
         if (role=="Werewolf")
         {

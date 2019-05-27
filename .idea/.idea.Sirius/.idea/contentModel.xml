@@ -52,6 +52,7 @@
           <e p="handleGeneralDisplay.cs" t="Include" />
           <e p="handleTimerDisplay.cs" t="Include" />
           <e p="handleVolume.cs" t="Include" />
+          <e p="handleVotingProcess.cs" t="Include" />
           <e p="HostGame.cs" t="Include" />
           <e p="JoinGame.cs" t="Include" />
           <e p="jumpAnimBehaviour.cs" t="Include" />

@@ -54,7 +54,6 @@ public class timer : MonoBehaviour
                 return;
         }
         
-
         if (firstDay)
         {
             mTimer += votingProcessDuration;

@@ -63,12 +63,6 @@ public class werewolfActions : NetworkBehaviour
         return isTransformed;
     }
 
-    public static void attackVillager(RaycastHit hit)
-    {
-        hit.transform.gameObject.tag = "disabledVillager";
-    }
-
-
     void transformToWerewolf()
     {
         werewolfSkin.SetActive(true);

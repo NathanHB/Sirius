@@ -33,21 +33,6 @@ public class SelectManager : MonoBehaviour
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         
-        
-        if (isWerewolf)
-        {
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.gameObject.tag=="Villager" && Input.GetMouseButton(0))
-                {
-                    werewolfActions.attackVillager(hit);
-                }
-            }
-            return;
-        }
-        
-        
-
         if (Physics.Raycast(ray, out hit))
         {
              if (lookedObjects.Count>0)

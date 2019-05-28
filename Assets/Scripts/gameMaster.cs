@@ -21,7 +21,6 @@ public class gameMaster : NetworkBehaviour
         string playerID = playerNamePrefix + netID;
         
         string role = ChooseRole();
-        Debug.Log("role"+role);
         
         players.Add(playerID, (player, role));
 

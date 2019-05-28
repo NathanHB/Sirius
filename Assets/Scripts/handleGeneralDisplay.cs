@@ -8,13 +8,11 @@ using UnityEngine.UI;
 public class handleGeneralDisplay : MonoBehaviour
 {
     private string role;
-    private bool instructionsDisplayed = false;
     private bool isTransformed = false;
     private bool isVisionDark = false;
-    private bool isIdDisplayEnabled = true;
 
-    public GameObject player;
-    public GameObject villagerSkin;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject villagerSkin;
 
     public Canvas darkVision;
     public Canvas voteCanvas;
@@ -23,57 +21,81 @@ public class handleGeneralDisplay : MonoBehaviour
     private string subClass = "";
     private string currentState = "";
 
-    public TextMesh idDisplay;
-    public Text textContainer;
-    // Start is called before the first frame update
+  
+    [SerializeField] Text textContainer;
+
     void Start()
     {
         role = player.tag;
-        string toDp = player.name;
-        toDp = 'P' + toDp.Substring(1);
-        idDisplay.text = toDp;
-        textContainer.text = "You are "+role+"!";
+
         voteCanvas.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        role = player.tag;
+
         currentState = timer.getStateAndTimeLeft().Item1;
+        
                 
-        if (!hasSubClass)
+        if (!hasSubClass && villagerSkin.tag!="Untagged")
         {
-            string sClass = villagerSkin.tag;
-
-            if (sClass != "Untagged")
-            {
-                hasSubClass = true;
-                subClass = sClass;
-            }      
+            hasSubClass = true;
+            subClass = villagerSkin.tag;
         }
-
+       
+        
         if (currentState=="preState")
         {
             textContainer.text = "You are "+role+" !";
-            instructionsDisplayed = true;
-            return;             
         }
-        
-        if (currentState == "night" && isIdDisplayEnabled)
+        else if (currentState == "night")
         {
-            idDisplay.gameObject.SetActive(false);
-            isIdDisplayEnabled = false;
-        }
 
-        if (currentState == "dayVoting")
+            if (role=="Werewolf")
+            {
+                if (werewolfActions.getTransformedState())//if transformed
+                {
+                    textContainer.text = "Press F to return to villager";
+                    isTransformed = true;
+                }
+                else
+                {
+                    textContainer.text = "Press F to turn into a  werewolf";
+                    if (isTransformed)
+                        isTransformed = false;
+                }
+            }
+            else
+            {
+                    if (!hasSubClass)
+                    {
+                       textContainer.text = "RUN !";
+                    }
+                    else
+                    {
+                        if (subClass == "hunter")
+                            textContainer.text = "You are a hunter. You can kill a werewolf by left-clicking";
+                        else if (subClass == "wizard")
+                            textContainer.text = "You are a wizard. You will be able to save or kill players";
+                        else
+                            textContainer.text = "You are a little girl. You can run faster and see better at night";           
+                    }
+ 
+                if (!isVisionDark)
+                {
+                    darkVision.gameObject.SetActive(true);
+                    isVisionDark = true;
+                }
+            }
+            
+            
+        }
+        else if (currentState == "dayVoting")
         {
+           
            textContainer.text = "Please vote for a suspect player to kill";
-           instructionsDisplayed = true;
-           if (!isIdDisplayEnabled)
-           {
-               idDisplay.gameObject.SetActive(true);
-               isIdDisplayEnabled = true;
-           }
+
            
            if( isVisionDark)
            {
@@ -83,85 +105,17 @@ public class handleGeneralDisplay : MonoBehaviour
 
            if (!voteCanvas.gameObject.activeSelf)
                voteCanvas.gameObject.SetActive(true);   
-           return;
         }
-
-        if (currentState == "dayNotVoting" && voteCanvas.gameObject.activeSelf)
-                voteCanvas.gameObject.SetActive(false); 
-        
-        if (role=="Werewolf")
+        else if (currentState == "dayNotVoting")
         {
-            if (werewolfActions.getTransformedState())
-            {
-                textContainer.text = "Press F to return to villager";
-                isTransformed = true;
-                return;
-            }
-            if (!werewolfActions.getTransformedState() && isTransformed)
-            {
-                textContainer.text = "Press F to turn into a  werewolf";
-                isTransformed = false;
-                return;
-            }
+            if (voteCanvas.gameObject.activeSelf)
+                voteCanvas.gameObject.SetActive(false);
 
-
-            if (!timer.isDay && !instructionsDisplayed)
-            {
-                textContainer.text = "Press F to turn into a  werewolf";
-
-                instructionsDisplayed = true;
-            }
-            else if (timer.isDay && instructionsDisplayed)
-            {
-                textContainer.text = "You are Werewolf!";
-                instructionsDisplayed = false;
-            }
-        }
-        else
-        {
             if (!hasSubClass)
-            {
-                 if (currentState=="night" && !instructionsDisplayed)
-                 {
-                  textContainer.text = "RUN !";
-                  instructionsDisplayed = true;
-                 }
-                 else if (currentState=="dayNotVoting" && instructionsDisplayed)
-                 {
-                  textContainer.text = "You are villager!";
-                  instructionsDisplayed = false;
-                 }
-            }
-            else
-            {
-                if (currentState=="night" && !instructionsDisplayed)
-                {
-                    if (subClass == "hunter")
-                        textContainer.text = "You are a hunter. You can kill a werewolf by left-clicking";
-                    else if (subClass == "wizard")
-                        textContainer.text = "You are a wizard. You will be able to save or kill players";
-                    else
-                        textContainer.text = "You are a little girl. You can run faster and see better at night";  
-                    
-                    instructionsDisplayed = true;
-                }
-                else if (currentState=="dayNotVoting")
-                {
-                    textContainer.text = "You are a "+subClass+"!";
-                    instructionsDisplayed = false;
-                }   
-            }
-                
-
-            if (currentState=="night" && !isVisionDark)
-            {
-                darkVision.gameObject.SetActive(true);
-                isVisionDark = true;
-            }
-
-                
+               textContainer.text = "You are " + role + " !";
+            else 
+               textContainer.text = "You are " + subClass + " !";
         }
-
 
     }
 }

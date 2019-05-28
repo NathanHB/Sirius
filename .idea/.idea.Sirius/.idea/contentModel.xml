@@ -54,6 +54,7 @@
           <e p="handleVolume.cs" t="Include" />
           <e p="handleVotingProcess.cs" t="Include" />
           <e p="HostGame.cs" t="Include" />
+          <e p="idDisplayHandle.cs" t="Include" />
           <e p="JoinGame.cs" t="Include" />
           <e p="jumpAnimBehaviour.cs" t="Include" />
           <e p="NewBehaviourScript.cs" t="Include" />

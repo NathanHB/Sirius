@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class NewBehaviourScript : MonoBehaviour
+public class idDisplayHandle : MonoBehaviour
 {
     public TextMesh idDisplay;
-    public GameObject player;
+    [SerializeField] GameObject player;
     private bool isIdDisplayEnabled = true;
     private string currentState;
 

@@ -23,6 +23,7 @@ public class PlayerControl : NetworkBehaviour
     private Vector3 yrotation;
     private bool isWerewolf;
     public GameObject player;
+    private bool isVillagerDisabled = false;
     
     
     private PlayerMotor _motor;
@@ -37,6 +38,14 @@ public class PlayerControl : NetworkBehaviour
 
     public void Update()
     {
+        if (player.tag=="disabledVillager" && !isVillagerDisabled)
+        {
+            isVillagerDisabled = true;
+            player.transform.Rotate(new Vector3(-90,0,0));
+            return;
+        }
+        
+        
         // get movement input from the keyboard
 
         Xmov = Input.GetAxis("Horizontal");

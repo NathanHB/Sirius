@@ -7490,7 +7490,6 @@ MonoBehaviour:
   villagerSkin: {fileID: 2794491694496911521}
   darkVision: {fileID: 5344577024842913334}
   voteCanvas: {fileID: 1343247952706695433}
-  idDisplay: {fileID: 4948310987883124894}
   textContainer: {fileID: 4843505505004935513}
 --- !u!1 &5858570462728671822
 GameObject:
@@ -7935,6 +7934,7 @@ GameObject:
   - component: {fileID: 6716199013568440192}
   - component: {fileID: 5859244477101889055}
   - component: {fileID: 1568597569318948210}
+  - component: {fileID: 3939575077272993849}
   - component: {fileID: 9025171961697533150}
   - component: {fileID: 7093928774355575773}
   - component: {fileID: 2498551609493654985}
@@ -7951,7 +7951,7 @@ GameObject:
   - component: {fileID: 7885093531989627615}
   m_Layer: 10
   m_Name: PlayerObject
-  m_TagString: Villager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8065,6 +8065,21 @@ MonoBehaviour:
   - {fileID: 2400565830900909324}
   - {fileID: 5344577024842913334}
   - {fileID: 1343247952706695433}
+  - {fileID: 3888760492899010614}
+--- !u!114 &3939575077272993849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215384032563771448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4420687965b815a4f91d577b79cb093d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idDisplay: {fileID: 4948310987883124894}
+  player: {fileID: 7215384032563771448}
 --- !u!114 &9025171961697533150
 MonoBehaviour:
   m_ObjectHideFlags: 0

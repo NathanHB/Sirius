@@ -14,6 +14,7 @@ public class handleGeneralDisplay : MonoBehaviour
     private bool isIdDisplayEnabled = true;
 
     public GameObject player;
+    public GameObject villagerSkin;
 
     public Canvas darkVision;
     public Canvas voteCanvas;
@@ -42,8 +43,9 @@ public class handleGeneralDisplay : MonoBehaviour
                 
         if (!hasSubClass)
         {
-            string sClass = PlayerSetup.getSubClass();
-            if (sClass.Length > 0)
+            string sClass = villagerSkin.tag;
+
+            if (sClass != "Untagged")
             {
                 hasSubClass = true;
                 subClass = sClass;
@@ -52,7 +54,7 @@ public class handleGeneralDisplay : MonoBehaviour
 
         if (currentState=="preState")
         {
-            textContainer.text = "You are "+PlayerSetup.getRole()+" !";
+            textContainer.text = "You are "+role+" !";
             instructionsDisplayed = true;
             return;             
         }

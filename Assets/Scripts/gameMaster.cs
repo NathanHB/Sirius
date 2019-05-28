@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using Random = System.Random;
@@ -12,20 +13,19 @@ public class gameMaster : NetworkBehaviour
     private static Dictionary<string, (PlayerManager, string)> players = new Dictionary<string, (PlayerManager, string)>();
 
     [SerializeField] private static int wolfneeded = 2;
-    private static int playersNeeded = 1;
+    private static int playersNeeded = 2;
     private static int wolfCount = 0;
 
-    public static string CmdRegisterPlayer(string netID, PlayerManager player)
+    public static void CmdRegisterPlayer(string netID, PlayerManager player)
     {
         string playerID = playerNamePrefix + netID;
         
         string role = ChooseRole();
+        Debug.Log("role"+role);
         
         players.Add(playerID, (player, role));
 
         player.transform.name = playerID;
-        
-        return role;
     }
 
     
@@ -38,6 +38,17 @@ public class gameMaster : NetworkBehaviour
     public static PlayerManager GetPlayer(string playerID)
     {
         return players[playerID].Item1;
+    }
+
+    public static string getRole(string playerId)
+    {
+        foreach (var elt in players)
+        {
+            if (elt.Key == playerId)
+                return elt.Value.Item2;
+        }
+
+        return "";
     }
 
     void OnGUI()

@@ -7487,6 +7487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7215384032563771448}
+  villagerSkin: {fileID: 2794491694496911521}
   darkVision: {fileID: 5344577024842913334}
   voteCanvas: {fileID: 1343247952706695433}
   idDisplay: {fileID: 4948310987883124894}
@@ -8019,6 +8020,7 @@ MonoBehaviour:
   speed: 5
   rotationSensitivity: 6
   cameraSensitivity: 6
+  player: {fileID: 7215384032563771448}
 --- !u!114 &5859244477101889055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8036,6 +8038,7 @@ MonoBehaviour:
   rotation: {x: 0, y: 0, z: 0}
   camRot: {x: 0, y: 0, z: 0}
   villager: {fileID: 2794491694496911521}
+  player: {fileID: 7215384032563771448}
   jumpSound: {fileID: 5094743890221621640}
 --- !u!114 &1568597569318948210
 MonoBehaviour:
@@ -8081,6 +8084,7 @@ MonoBehaviour:
   werewolfAnimator: {fileID: 9100000, guid: 5624452e0a901934b9b01a38d658e298, type: 2}
   villagerAnimator: {fileID: 9100000, guid: 9babb70d1540afb4a8624be968a6e4f9, type: 2}
   playerCamera: {fileID: 3735964180399645316}
+  player: {fileID: 7215384032563771448}
 --- !u!114 &7093928774355575773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8217,6 +8221,8 @@ MonoBehaviour:
   teddybear: {fileID: 2100000, guid: 7d75d32374745ec4786bea780b633057, type: 2}
   teddybearOutlined: {fileID: 2100000, guid: 6e09ac837fb7bc34d80a1fc91752833b, type: 2}
   cam: {fileID: 3735964180399645316}
+  player: {fileID: 7215384032563771448}
+  villagerSkin: {fileID: 2794491694496911521}
 --- !u!114 &1061124818259896066
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,10 @@ TagManager:
   - Item
   - UI
   - Villager
+  - disabledVillager
+  - wizard
+  - hunter
+  - littleGirl
   layers:
   - Default
   - TransparentFX

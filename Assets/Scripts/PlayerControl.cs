@@ -22,6 +22,7 @@ public class PlayerControl : NetworkBehaviour
     private float yrot;
     private Vector3 yrotation;
     private bool isWerewolf;
+    public GameObject player;
     
     
     private PlayerMotor _motor;
@@ -30,8 +31,9 @@ public class PlayerControl : NetworkBehaviour
     void Start()
     {     
         _motor = GetComponent<PlayerMotor>();
-        isWerewolf = PlayerSetup.getRole()=="Werewolf";
+        isWerewolf = player.tag=="Werewolf";
     }
+
 
     public void Update()
     {

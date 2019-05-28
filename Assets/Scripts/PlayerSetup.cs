@@ -13,8 +13,8 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField] private Behaviour[] compsToDisable;
     
 
-    private static string role;
-    private static string subClass = "";
+    private string role;
+    private string subClass = "";
     
     void Start()
     {
@@ -42,7 +42,8 @@ public class PlayerSetup : NetworkBehaviour
 
         PlayerManager player = GetComponent<PlayerManager>();
 
-        role = gameMaster.CmdRegisterPlayer(netID, player);
+        gameMaster.CmdRegisterPlayer(netID, player);
+        role = gameMaster.getRole(transform.name);
         transform.gameObject.tag = role;
     }
 
@@ -67,31 +68,14 @@ public class PlayerSetup : NetworkBehaviour
         gameObject.layer = LayerMask.NameToLayer("RemotePlayer");
     }
 
-    public static string getRole()
+    public string getRole()
     {
         return role;
     }
 
-    public static void addSubClass(string sClass)
-    {
-        switch (sClass)
-        {
-            case "rifleContent":
-                subClass = "hunter";
-                break;
-            case "potion":
-                subClass = "wizard";
-                break;
-            case "teddyBear":
-                subClass = "littleGirl";
-                break;
-            default:
-                subClass = "";
-                break;
-        }  
-    }
 
-    public static string getSubClass()
+
+    public string getSubClass()
     {
         return subClass;
     }

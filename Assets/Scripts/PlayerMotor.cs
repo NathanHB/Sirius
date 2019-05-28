@@ -22,6 +22,8 @@ public class PlayerMotor : NetworkBehaviour
     private bool isWerewolf;
     private bool isTransformed;
 
+    public GameObject player;
+
     public AudioSource jumpSound;
     
 
@@ -32,7 +34,7 @@ public class PlayerMotor : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;//Prevent the damn rb to spin after colliding a wall
         animHandler = GetComponent<handleAnimation>();
-        isWerewolf = PlayerSetup.getRole()=="Werewolf";
+        isWerewolf = player.tag=="Werewolf";
     }
 
     private void Update()

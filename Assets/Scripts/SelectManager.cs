@@ -16,21 +16,37 @@ public class SelectManager : MonoBehaviour
     [SerializeField] private Material teddybearOutlined;
     [SerializeField] private Camera cam;
     private bool isWerewolf;
+    public GameObject player;
+    public GameObject villagerSkin;
 
     private List<Transform> lookedObjects = new List<Transform>();
 
-    private void Start()
+    void Start()
     {
-        isWerewolf = PlayerSetup.getRole() == "Werewolf";
+        isWerewolf = player.tag=="Werewolf";
     }
 
     void Update()
     {
-        if (isWerewolf)
-            return;
+
 
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        
+        
+        if (isWerewolf)
+        {
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.gameObject.tag=="Villager" && Input.GetMouseButton(0))
+                {
+                    werewolfActions.attackVillager(hit);
+                }
+            }
+            return;
+        }
+        
+        
 
         if (Physics.Raycast(ray, out hit))
         {
@@ -72,9 +88,25 @@ public class SelectManager : MonoBehaviour
 
     void switchClass(Transform select)
     {
-        if (select.CompareTag(selectableTagItem) && Input.GetKeyDown(KeyCode.F) && PlayerSetup.getSubClass().Length==0)
+        if (select.CompareTag(selectableTagItem) && Input.GetKeyDown(KeyCode.F) && villagerSkin.tag == "Untagged")
         {
-           PlayerSetup.addSubClass(select.name);
+            switch (select.name)
+            {
+                case "rifleContent":
+                    villagerSkin.tag = "hunter";
+                    break;
+                case "potion":
+                    villagerSkin.tag = "wizard";
+                    break;
+                case "teddyBear":
+                    villagerSkin.tag = "littleGirl";
+                    break;
+                default:
+                    villagerSkin.tag = "Untagged";
+                    break;
+            }  
+            
+            
            select.tag = "Untagged";
            select.parent.gameObject.SetActive(false);
         }   

@@ -20,11 +20,12 @@ public class werewolfActions : NetworkBehaviour
     public Camera playerCamera;
     
     private Animator anim;
+    public GameObject player;
 
     private float scdTimer;
     void Start()
     {
-        isWerewolf = PlayerSetup.getRole() == "Werewolf";
+        isWerewolf = player.tag == "Werewolf";
         scdTimer = 0;
         anim = GetComponent<Animator>();
         isTransformed = false;
@@ -60,6 +61,11 @@ public class werewolfActions : NetworkBehaviour
     public static bool getTransformedState()
     {
         return isTransformed;
+    }
+
+    public static void attackVillager(RaycastHit hit)
+    {
+        hit.transform.gameObject.tag = "disabledVillager";
     }
 
 

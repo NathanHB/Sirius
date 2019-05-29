@@ -28,14 +28,15 @@ public class handleGeneralDisplay : MonoBehaviour
 
     void Start()
     {
-        role = gameMaster.getRole("player "+ player.GetComponent<NetworkIdentity>().netId.ToString());
+        role = player.tag;
 
         voteCanvas.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        textContainer.text = player.tag;
+        role = player.tag;
+
         /*string toDisp = "";
         toDisp += "n : ";
         string[] playersIds = gameMaster.getPlayersId();
@@ -50,7 +51,7 @@ public class handleGeneralDisplay : MonoBehaviour
 
         //textContainer.text = gameMaster.getPlayersNumber()+"";
         //gameMaster.getRole("player " + player.GetComponent<NetworkIdentity>().netId.ToString()); 
-        /*
+        
         currentState = timer.getStateAndTimeLeft().Item1;
         
                 
@@ -132,7 +133,7 @@ public class handleGeneralDisplay : MonoBehaviour
             else 
                textContainer.text = "You are " + subClass + " !";
         }
-        */
+        
 
     }
 }

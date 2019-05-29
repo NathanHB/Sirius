@@ -71,7 +71,7 @@ public class gameMaster : NetworkBehaviour
                 return elt.Value.Item2;
         }
 
-        return "";
+        return "Untagged";
     }
 
     void OnGUI()

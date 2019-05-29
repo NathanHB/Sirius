@@ -36,10 +36,18 @@ public class PlayerSetup : NetworkBehaviour
         {
             CmdRequestRole(GetComponent<NetworkIdentity>().netId.ToString(), Player);
         }
-        
     }
 
-   public override void OnStartClient()
+    private void Update()
+    {
+        if (!isServer)
+        {
+            CmdRequestRole(GetComponent<NetworkIdentity>().netId.ToString(), Player);
+        }
+    }
+
+
+    public override void OnStartClient()
     {
         base.OnStartClient();
         
@@ -50,9 +58,7 @@ public class PlayerSetup : NetworkBehaviour
         PlayerManager player = GetComponent<PlayerManager>();
 
         gameMaster.CmdRegisterPlayer(netID, player);
-        
-        
-        
+                
     }
 
    [Command]

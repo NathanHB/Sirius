@@ -8066,6 +8066,7 @@ MonoBehaviour:
   - {fileID: 5344577024842913334}
   - {fileID: 1343247952706695433}
   - {fileID: 3888760492899010614}
+  Player: {fileID: 7215384032563771448}
 --- !u!114 &3939575077272993849
 MonoBehaviour:
   m_ObjectHideFlags: 0

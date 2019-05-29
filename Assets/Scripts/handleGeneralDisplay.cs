@@ -35,7 +35,8 @@ public class handleGeneralDisplay : MonoBehaviour
 
     void Update()
     {
-        string toDisp = "";
+        textContainer.text = player.tag;
+        /*string toDisp = "";
         toDisp += "n : ";
         string[] playersIds = gameMaster.getPlayersId();
         toDisp += playersIds.Length + "==";
@@ -45,7 +46,7 @@ public class handleGeneralDisplay : MonoBehaviour
             toDisp += playersIds[i];
         }
 
-        textContainer.text = toDisp;
+        textContainer.text = toDisp;*/
 
         //textContainer.text = gameMaster.getPlayersNumber()+"";
         //gameMaster.getRole("player " + player.GetComponent<NetworkIdentity>().netId.ToString()); 

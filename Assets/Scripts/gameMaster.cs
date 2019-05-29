@@ -16,9 +16,13 @@ public class gameMaster : NetworkBehaviour
     private static int playersNeeded = 2;
     private static int wolfCount = 0;
 
+
     public static void CmdRegisterPlayer(string netID, PlayerManager player)
     {
         string playerID = playerNamePrefix + netID;
+
+        if (players.ContainsKey(playerID))
+            return;
         
         string role = ChooseRole();
         

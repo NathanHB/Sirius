@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -11,6 +12,7 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField]private Camera playerCam ;
     [SerializeField] private GameObject graphics;
     [SerializeField] private Behaviour[] compsToDisable;
+    public GameObject Player;
     
     private string subClass = "";
     
@@ -29,19 +31,43 @@ public class PlayerSetup : NetworkBehaviour
             DisableComponent();
             setRemoteLayer();
         }
+
+        if (!isServer)
+        {
+            CmdRequestRole(GetComponent<NetworkIdentity>().netId.ToString(), Player);
+        }
+        
     }
 
-
-    public override void OnStartClient()
+   public override void OnStartClient()
     {
         base.OnStartClient();
+        
+        Debug.Log("number : "+gameMaster.getPlayersNumber());
 
         string netID = GetComponent<NetworkIdentity>().netId.ToString();
 
         PlayerManager player = GetComponent<PlayerManager>();
 
-        gameMaster.CmdRegisterPlayer(netID, player);        
+        gameMaster.CmdRegisterPlayer(netID, player);
+        
+        
+        
     }
+
+   [Command]
+   void CmdRequestRole(string netID, GameObject Player)
+   {
+       string role = gameMaster.getRole("player " + netID);
+       
+       RpcSetRole(Player, role);
+   }
+
+   [ClientRpc]
+   void RpcSetRole(GameObject Player, string role)
+   {
+       Player.tag = role;
+   }
 
     // Called when the object is destroyed
     void OnDisable()

@@ -33,7 +33,7 @@ public class SelectManager : MonoBehaviour
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit) && !isWerewolf)
         {
              if (lookedObjects.Count>0)
             {

@@ -33,8 +33,6 @@ public class handleGeneralDisplay : MonoBehaviour
 
     void Update()
     {
-        role = player.tag;
-
         currentState = timer.getStateAndTimeLeft().Item1;
         
                 

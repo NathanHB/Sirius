@@ -25,6 +25,7 @@ public class gameMaster : NetworkBehaviour
         players.Add(playerID, (player, role));
 
         player.transform.name = playerID;
+        player.tag = role;
     }
 
     

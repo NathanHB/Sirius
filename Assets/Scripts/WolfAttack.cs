@@ -7,30 +7,38 @@ using UnityEngine.Networking;
 public class WolfAttack : NetworkBehaviour
 {
     [SerializeField] private Camera cam;
-    [SerializeField] private PlayerManager player;
 
     [SerializeField] private int wolfRange = 10;
 
     [SerializeField] private LayerMask mask;
+    public GameObject player;
+
+    private bool isWerewolf;
+    private bool isTransformed = false;
+
+    private void Start()
+    {
+        isWerewolf = player.tag == "Werewolf";
+    }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (werewolfActions.getTransformedState())
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1") && isWerewolf)
+                attack();
         }
+        
+       
     }
 
-
-    [Client]
-    void Shoot()
+    void attack()
     {
         RaycastHit _hit;
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, wolfRange, mask))
         {
-            //if (_hit.collider.tag == "Werewolf") ;
-            
+            if (_hit.collider.tag == "Villager")
                 CmdPlayerShot(_hit.collider.name);
         }
     }

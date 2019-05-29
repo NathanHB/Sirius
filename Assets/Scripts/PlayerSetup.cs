@@ -42,9 +42,7 @@ public class PlayerSetup : NetworkBehaviour
 
         PlayerManager player = GetComponent<PlayerManager>();
 
-        gameMaster.CmdRegisterPlayer(netID, player);
-        role = gameMaster.getRole(transform.name);
-        transform.gameObject.tag = role;
+        gameMaster.CmdRegisterPlayer(netID, player);        
     }
 
     // Called when the object is destroyed

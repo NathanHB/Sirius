@@ -21,6 +21,10 @@ public class PlayerManager : NetworkBehaviour
         set => isDead = value;
     }
 
+    private void Start()
+    {
+        sceneCam = Camera.main;
+    }
 
     void Update()
     {
@@ -43,7 +47,7 @@ public class PlayerManager : NetworkBehaviour
 
     private void Die()
     {
-        sceneCam = Camera.main;
+       //sceneCam.gameObject.SetActive(true);
         isDead = true;
         for (int i = 0; i < DisableOnDeath.Length; i++)
         {

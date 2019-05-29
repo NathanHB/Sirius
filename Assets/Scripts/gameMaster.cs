@@ -34,6 +34,25 @@ public class gameMaster : NetworkBehaviour
         players.Remove(playerID);
     }
 
+    public static int getPlayersNumber()
+    {
+        return players.Count;
+    }
+
+
+    public static string[] getPlayersId()
+    {
+        string[] res = new string[players.Count];
+        int count = 0;
+        foreach (var elt in players)
+        {
+            res[count]=elt.Key+"=>"+elt.Value.Item2;
+            count++;
+        }
+
+        return res;
+    }
+
 
     public static PlayerManager GetPlayer(string playerID)
     {
@@ -84,7 +103,7 @@ public class gameMaster : NetworkBehaviour
                 return "Werewolf";
             }
 
-            return "Villager";
+        return "Villager";
     }
 
     public static bool allPlayersConnected()

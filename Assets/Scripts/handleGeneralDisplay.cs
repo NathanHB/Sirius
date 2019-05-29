@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class handleGeneralDisplay : MonoBehaviour
@@ -26,13 +28,28 @@ public class handleGeneralDisplay : MonoBehaviour
 
     void Start()
     {
-        role = player.tag;
+        role = gameMaster.getRole("player "+ player.GetComponent<NetworkIdentity>().netId.ToString());
 
         voteCanvas.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        string toDisp = "";
+        toDisp += "n : ";
+        string[] playersIds = gameMaster.getPlayersId();
+        toDisp += playersIds.Length + "==";
+
+        for (int i = 0; i < playersIds.Length; i++)
+        {
+            toDisp += playersIds[i];
+        }
+
+        textContainer.text = toDisp;
+
+        //textContainer.text = gameMaster.getPlayersNumber()+"";
+        //gameMaster.getRole("player " + player.GetComponent<NetworkIdentity>().netId.ToString()); 
+        /*
         currentState = timer.getStateAndTimeLeft().Item1;
         
                 
@@ -114,6 +131,7 @@ public class handleGeneralDisplay : MonoBehaviour
             else 
                textContainer.text = "You are " + subClass + " !";
         }
+        */
 
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 [RequireComponent(typeof(PlayerMotor))]
 
-public class PlayerControl : NetworkBehaviour
+public class PlayerControl : MonoBehaviour
 
 {
     [SerializeField] private float speed = 5;

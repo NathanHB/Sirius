@@ -13,6 +13,7 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField] private GameObject graphics;
     [SerializeField] private Behaviour[] compsToDisable;
     public GameObject Player;
+    private GameObject[] allPlayers;
     
     private string subClass = "";
     
@@ -31,19 +32,28 @@ public class PlayerSetup : NetworkBehaviour
             DisableComponent();
             setRemoteLayer();
         }
+        
+        allPlayers = FindObjectsOfType<GameObject>();
 
         if (!isServer)
         {
             CmdRequestRole(GetComponent<NetworkIdentity>().netId.ToString(), Player);
+            
+            for (int i = 0; i < allPlayers.Length; i++)
+            {
+                if (allPlayers[i].name.Contains("player "))
+                    CmdRequestRole(allPlayers[i].name.Remove(0,7), allPlayers[i].gameObject);
+            }
         }
+
+
+
     }
 
     private void Update()
     {
         if (!isServer)
-        {
             CmdRequestRole(GetComponent<NetworkIdentity>().netId.ToString(), Player);
-        }
     }
 
 

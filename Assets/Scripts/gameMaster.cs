@@ -15,6 +15,8 @@ public class gameMaster : NetworkBehaviour
     [SerializeField] private static int wolfneeded = 2;
     private static int playersNeeded = 2;
     private static int wolfCount = 0;
+    private static bool isOver = false;
+    private static string winner;
 
 
     public static void CmdRegisterPlayer(string netID, PlayerManager player)
@@ -32,11 +34,23 @@ public class gameMaster : NetworkBehaviour
         player.tag = role;
     }
 
-    
+
+    private void Update()
+    {
+        (isOver, winner) = checkIsOver();
+    }
+
+    public static (bool, string) getIsOver()
+    {
+        return (isOver, winner);
+    }
+
+
     public static void CmdUnregisterPlayer(string playerID)
     {
         players.Remove(playerID);
     }
+    
 
     public static int getPlayersNumber()
     {
@@ -114,6 +128,29 @@ public class gameMaster : NetworkBehaviour
     {
         return players.Count == playersNeeded;
     }
+
+    private static (bool, string) checkIsOver()
+    {
+        bool onlyVillagers = true,
+            onlyWerewolves = true;
+
+        foreach (var player in players)
+        {
+            if (player.Value.Item2 == "Villager")
+                onlyWerewolves = false;
+            else
+                onlyVillagers = false;
+        }
+
+        if (onlyVillagers)
+            return (true, "Villager");
+        if(onlyWerewolves)
+            return (true, "Werewolf");
+
+        return (false, "");
+    }
+    
+    
     
      
 }

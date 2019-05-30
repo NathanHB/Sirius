@@ -11,19 +11,32 @@ public class handleTimerDisplay : NetworkBehaviour
     private string state;
 
     public Text textTDP;
+    public Canvas gameOverCanvas;
+    public Text gameOverText;
     
 
     // Update is called once per frame
     void Update()
     {
         (state, mainTimer) = timer.getStateAndTimeLeft();
+        
         if (state == "dayVoting")
                 textTDP.text = mainTimer + "s before end of vote";
         else if (state=="dayNotVoting")
             textTDP.text = mainTimer+ "s before night";
         else if (state == "night")
             textTDP.text = mainTimer+ "s before end of night";
-        else
+        else if(state=="preState")
             textTDP.text = "Waiting for all players to connect";
+        else
+        {
+            textTDP.text = "";
+            gameOverCanvas.gameObject.SetActive(true);
+
+            if (timer.getWinner()=="Werewolf")
+                gameOverText.text ="Werewolves have won !";
+            else 
+                gameOverText.text = "Villagers have won !";
+        }
     }
 }

@@ -52,7 +52,7 @@ public class PlayerSetup : NetworkBehaviour
 
     private void Update()
     {
-        if (!isServer && GetComponent<NetworkIdentity>().netId==netId)
+        if (!isServer)
             CmdRequestRole(GetComponent<NetworkIdentity>().netId.ToString(), Player);
     }
 

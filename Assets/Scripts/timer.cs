@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class timer : MonoBehaviour
+public class timer : NetworkBehaviour
 {
     // Start is called before the first frame update
 
@@ -28,8 +29,12 @@ public class timer : MonoBehaviour
     private static bool isVoting = false;
     private bool firstDay;
     private string state;
+    private bool isOver = false;
+    private bool hasStarted = false;
+    private static string winner;
     void Start()
     {
+        winner = "";
         mTimer = -1;
         start = false;
         items = GameObject.FindGameObjectsWithTag("Item");
@@ -40,16 +45,32 @@ public class timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        winner = transform.tag;
+
+        if (hasStarted)
+            CmdCheckIsOver();
+
         if (start)
+        {
             mTimer += Time.deltaTime;
+            if (!hasStarted)
+                hasStarted = true;
+        }
         else
         {
+            if (mTimer == -2)
+            {
+                state = "gameOver";
+                return;
+            }
+            
             if (gameMaster.allPlayersConnected())
             {
                 mTimer = 0;
                 start = true;
                 state = "dayNotVoting";
-            }
+            }  
             else
                 return;
         }
@@ -85,10 +106,19 @@ public class timer : MonoBehaviour
         }
         }
 
+    public static string getWinner()
+    {
+        return winner;
+    }
+
+
     public static (string, int) getStateAndTimeLeft()
     {
         if (mTimer==-1)
             return ("preState", 0);
+
+        if (mTimer == -2)
+            return ("gameOver", 0);
         
         if (isDay)
         {
@@ -126,5 +156,28 @@ public class timer : MonoBehaviour
         foreach (var item in items)
             item.SetActive(true);  
     }
+    
+    
+    
+    [Command]
+    void CmdCheckIsOver()
+    {
+        (bool over, string winner) = gameMaster.getIsOver();
+        RpcGetIsOver(over, winner);
+    }
+
+    [ClientRpc]
+    void RpcGetIsOver(bool over, string winner)
+    {
+        if (over)
+        {
+            start = false;
+            mTimer = -2;
+            transform.tag = winner;
+        }
+    }
+    
+    
+    
 
 }

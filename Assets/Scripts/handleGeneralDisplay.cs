@@ -36,7 +36,7 @@ public class handleGeneralDisplay : MonoBehaviour
     void Update()
     {
         role = player.tag;
-
+        
         /*string toDisp = "";
         toDisp += "n : ";
         string[] playersIds = gameMaster.getPlayersId();
@@ -65,6 +65,16 @@ public class handleGeneralDisplay : MonoBehaviour
         {
             hasSubClass = true;
             subClass = villagerSkin.tag;
+        }
+
+        if (currentState=="gameOver")
+        {
+            if (role == "Villager" || role == "Werewolf")
+                textContainer.text = "You were a great " + role + " !";
+            else
+                textContainer.text = "You died way too early...";
+
+           return;
         }
        
         

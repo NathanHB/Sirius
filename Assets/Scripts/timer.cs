@@ -48,7 +48,7 @@ public class timer : NetworkBehaviour
 
         winner = transform.tag;
 
-        if (hasStarted)
+        if (hasStarted && hasAuthority)//added has autority
             CmdCheckIsOver();
 
         if (start)

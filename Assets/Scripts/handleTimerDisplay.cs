@@ -34,9 +34,9 @@ public class handleTimerDisplay : NetworkBehaviour
             gameOverCanvas.gameObject.SetActive(true);
 
             if (timer.getWinner()=="Werewolf")
-                gameOverText.text ="Werewolves have won !";
+                gameOverText.text ="Werewolves win !";
             else 
-                gameOverText.text = "Villagers have won !";
+                gameOverText.text = "Villagers win !";
         }
     }
 }

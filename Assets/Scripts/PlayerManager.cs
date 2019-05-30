@@ -47,7 +47,6 @@ public class PlayerManager : NetworkBehaviour
 
     private void Die()
     {
-       //sceneCam.gameObject.SetActive(true);
         isDead = true;
         for (int i = 0; i < DisableOnDeath.Length; i++)
         {
@@ -57,6 +56,11 @@ public class PlayerManager : NetworkBehaviour
         if (_col != null) _col.enabled = false;
         
         gameMaster.CmdUnregisterPlayer(transform.name);
+
+        if (transform.tag == "Werewolf")
+            transform.tag = "disabledWerewolf";
+        else
+            transform.tag = "disabledVillager";
         
         if (hasAuthority && sceneCam != null)
         {

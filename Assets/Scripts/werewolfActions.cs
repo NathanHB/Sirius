@@ -66,6 +66,7 @@ public class werewolfActions : NetworkBehaviour
 
     void transformToWerewolf()
     {
+        Debug.Log("Transforming to werewolf");
         werewolfSkin.SetActive(true);
         villagerSkin.SetActive(false);
         isTransformed = true;
@@ -81,6 +82,8 @@ public class werewolfActions : NetworkBehaviour
 
     void TransformToVillager()
     {
+        Debug.Log("Transforming to villager");
+
         villagerSkin.SetActive(true);
         werewolfSkin.SetActive(false);
         isTransformed = false;

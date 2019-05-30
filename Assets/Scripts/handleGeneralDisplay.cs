@@ -53,8 +53,14 @@ public class handleGeneralDisplay : MonoBehaviour
         //gameMaster.getRole("player " + player.GetComponent<NetworkIdentity>().netId.ToString()); 
         
         currentState = timer.getStateAndTimeLeft().Item1;
-        
-                
+
+        if (role == "disabledVillager" || role == "disabledWerewolf")
+        {
+            textContainer.text = "You died...";
+            return;
+        }
+
+
         if (!hasSubClass && villagerSkin.tag!="Untagged")
         {
             hasSubClass = true;

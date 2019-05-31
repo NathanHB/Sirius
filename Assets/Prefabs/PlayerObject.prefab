@@ -8162,6 +8162,7 @@ GameObject:
   - component: {fileID: 2625637101180102481}
   - component: {fileID: 6630665111550540512}
   - component: {fileID: 1650640498142196966}
+  - component: {fileID: 4412571057388591726}
   - component: {fileID: 8357986022958147961}
   - component: {fileID: 7885093531989627615}
   m_Layer: 10
@@ -8622,6 +8623,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   player: {fileID: 7215384032563771448}
+--- !u!114 &4412571057388591726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215384032563771448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c354f2d68a9c96743abe9a702fa6d732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 3735964180399645316}
+  hunterRange: 10
+  mask:
+    serializedVersion: 2
+    m_Bits: 512
+  player: {fileID: 7215384032563771448}
+  villagerSkin: {fileID: 2794491694496911521}
 --- !u!23 &8357986022958147961
 MeshRenderer:
   m_ObjectHideFlags: 0

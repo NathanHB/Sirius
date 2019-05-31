@@ -25,7 +25,7 @@ public class werewolfActions : NetworkBehaviour
     private float scdTimer;
     void Start()
     {
-        isWerewolf = gameMaster.getRole(player.name) == "Werewolf";
+        isWerewolf = player.tag == "Werewolf";
         scdTimer = 0;
         anim = GetComponent<Animator>();
         isTransformed = false;

@@ -16,6 +16,7 @@ TagManager:
   - wizard
   - hunter
   - littleGirl
+  - disabledWerewolf
   layers:
   - Default
   - TransparentFX

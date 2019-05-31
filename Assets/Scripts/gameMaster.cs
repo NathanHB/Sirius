@@ -12,7 +12,7 @@ public class gameMaster : NetworkBehaviour
     
     private static Dictionary<string, (PlayerManager, string)> players = new Dictionary<string, (PlayerManager, string)>();
 
-    [SerializeField] private static int wolfneeded = 2;
+    [SerializeField] private static int wolfneeded = 1;
     private static int playersNeeded = 2;
     private static int wolfCount = 0;
     private static bool isOver = false;
@@ -105,11 +105,11 @@ public class gameMaster : NetworkBehaviour
 
     public static string ChooseRole()
     {
-        if (wolfCount == wolfneeded)
-        {
-            // role will be Villager
+        if (wolfCount == wolfneeded)// role will be Villager
             return "Villager";
-        }
+
+        if (playersNeeded-players.Count<=wolfneeded)
+            return "Werewolf";
         
             Random rnd = new Random();
             int choose = rnd.Next(0, 2);

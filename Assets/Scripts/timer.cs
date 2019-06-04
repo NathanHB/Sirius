@@ -19,7 +19,7 @@ public class timer : NetworkBehaviour
     public GameObject sun;
     public GameObject[] items;
 
-    private static int dayDuration = 10;
+    private static int dayDuration = 40;
     private static int nightDuration = 10;
     private static int votingProcessDuration = 30;
     // IMPORTANT NOTE : dayDuration includes votingProcessDuration

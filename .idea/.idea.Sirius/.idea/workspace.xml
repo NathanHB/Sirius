@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e11e2d13-25e2-4f07-a29b-52b1f2a2b6db" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +26,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/voting.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
@@ -63,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/handle_ui_ingame.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-240">
+            <state relative-caret-position="32">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <marker date="1559678764343" expanded="true" signature="65:2031" ph="{...}" />
@@ -442,7 +442,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210990000" />
+    <option name="totallyTimeSpent" value="211588000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1095,26 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/handle_ui_ingame.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <marker date="1559678764343" expanded="true" signature="65:2031" ph="{...}" />
-            <marker date="1559678764343" expanded="true" signature="103:190" ph="/* public static GameObject PauseMenuUi; ... */" />
-            <marker date="1559678764343" expanded="true" signature="448:722" ph="{...}" />
-            <marker date="1559678764343" expanded="true" signature="749:1109" ph="{...}" />
-            <marker date="1559678764343" expanded="true" signature="801:925" ph="{...}" />
-            <marker date="1559678764343" expanded="true" signature="950:1103" ph="{...}" />
-            <marker date="1559678764343" expanded="true" signature="1140:1416" ph="{...}" />
-            <marker date="1559678764343" expanded="true" signature="1438:1659" ph="{...}" />
-            <marker date="1559678764343" expanded="true" signature="1695:1786" ph="{...}" />
-            <marker date="1559678764343" expanded="true" signature="1823:1917" ph="{...}" />
-            <marker date="1559678764343" expanded="true" signature="1970:2025" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/voting.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -1131,6 +1111,26 @@
             <marker date="1559677881797" expanded="true" signature="1295:1693" ph="{...}" />
             <marker date="1559677881797" expanded="true" signature="1742:1942" ph="{...}" />
             <marker date="1559677881797" expanded="true" signature="1850:1936" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/handle_ui_ingame.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <marker date="1559678764343" expanded="true" signature="65:2031" ph="{...}" />
+            <marker date="1559678764343" expanded="true" signature="103:190" ph="/* public static GameObject PauseMenuUi; ... */" />
+            <marker date="1559678764343" expanded="true" signature="448:722" ph="{...}" />
+            <marker date="1559678764343" expanded="true" signature="749:1109" ph="{...}" />
+            <marker date="1559678764343" expanded="true" signature="801:925" ph="{...}" />
+            <marker date="1559678764343" expanded="true" signature="950:1103" ph="{...}" />
+            <marker date="1559678764343" expanded="true" signature="1140:1416" ph="{...}" />
+            <marker date="1559678764343" expanded="true" signature="1438:1659" ph="{...}" />
+            <marker date="1559678764343" expanded="true" signature="1695:1786" ph="{...}" />
+            <marker date="1559678764343" expanded="true" signature="1823:1917" ph="{...}" />
+            <marker date="1559678764343" expanded="true" signature="1970:2025" ph="{...}" />
           </folding>
         </state>
       </provider>

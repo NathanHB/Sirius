@@ -7675,7 +7675,6 @@ MonoBehaviour:
   PauseMenuUi: {fileID: 1443463837875981586}
   PauseSettingsUi: {fileID: 9125879610955968795}
   player: {fileID: 7215384032563771448}
-  controls: {fileID: 6716199013568440192}
 --- !u!114 &3043811760531612542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8721,6 +8720,7 @@ MonoBehaviour:
     type: 3}
   scrollView: {fileID: 889992116812473716}
   controls: {fileID: 6716199013568440192}
+  _rigidbody: {fileID: 8620823884743752895}
 --- !u!1 &7499599292116462985
 GameObject:
   m_ObjectHideFlags: 0

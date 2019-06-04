@@ -30,11 +30,17 @@ public class gameMaster : NetworkBehaviour
 
     public static void cmdEndVote()
     {
-        int indexMax = !votes.Any() ? -1 :
-            votes
-                .Select( (value, index) => new { Value = value, Index = index } )
-                .Aggregate( (a, b) => (a.Value > b.Value) ? a : b )
-                .Index;
+        int indexMax = 0;
+        int max = 0;
+
+        for (int i = 0; i < votes.Length; i++)
+        {
+            if (votes[i] > max)
+            {
+                max = votes[i];
+                indexMax = i;
+            }
+        }
 
         string player = playerNamePrefix + (indexMax + 7);
         CmdUnregisterPlayer(player);
@@ -111,20 +117,6 @@ public class gameMaster : NetworkBehaviour
         return "Untagged";
     }
 
-    void OnGUI()
-    {
-        GUILayout.BeginArea(new Rect(10, 10, 200, 500));
-        GUILayout.BeginVertical();
-
-        foreach (var player in players)
-        {
-            GUILayout.Label(player.Key + " " + player.Value.Item1.transform.name + " " + player.Value.Item2);
-        }
-        
-        GUILayout.EndVertical();
-        GUILayout.EndArea();
-        
-    }
 
     public static string ChooseRole()
     {

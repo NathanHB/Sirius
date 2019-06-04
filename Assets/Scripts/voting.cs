@@ -10,6 +10,7 @@ public class voting : NetworkBehaviour
 
     [SerializeField] private Transform scrollView;
     [SerializeField] private Behaviour controls;
+    [SerializeField] private Rigidbody _rigidbody;
     private bool voted = false;
 
     void Start()
@@ -30,6 +31,7 @@ public class voting : NetworkBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             controls.enabled = false;
+            _rigidbody.velocity = Vector3.zero;
             voted = true;
         }
         else if (stateTime.Item1 != "dayVoting")

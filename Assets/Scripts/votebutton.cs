@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class votebutton : MonoBehaviour
 {
-    private uint id;
+    private int id;
     [SerializeField] private Text buttonText;
 
     public delegate void VoteDelagate(int id);
@@ -14,12 +15,14 @@ public class votebutton : MonoBehaviour
     public void Setup(uint id, VoteDelagate vote)
     {
         voteDelagate = vote;
-        this.id = id;
-        buttonText.text = "Player: " + (id - 6);
+        this.id = (int) id;
+        Debug.Log("setting up the button to player: " + (this.id - 6));
+        if(buttonText != null) buttonText.text = "Player: " + (id - 6);
     }
 
     public void Vote()
     {
-        voteDelagate.Invoke((int)id);   
+        Debug.Log("voting");
+        voteDelagate.Invoke(id);
     }
 }

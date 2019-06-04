@@ -99,12 +99,14 @@ public class timer : NetworkBehaviour
             isDay = true;
             isVoting = true;
             state = "dayVoting";
+            Cursor.visible = true;
             mTimer = 0;
             Debug.Log("we switch to vote");
         }
         else if(state == "dayVoting" && mTimer > votingProcessDuration)
         {
             state = "dayNotVoting";
+            gameMaster.cmdEndVote();
             isVoting = false;
             Debug.Log("we switch to day no voting");
         }

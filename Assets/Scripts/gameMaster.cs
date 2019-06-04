@@ -38,7 +38,7 @@ public class gameMaster : NetworkBehaviour
 
         string player = playerNamePrefix + (indexMax + 7);
         CmdUnregisterPlayer(player);
-        GetPlayer(player).IsDead = true;
+        GetPlayer(player).RpcTakeDmg(999);
     }
 
 

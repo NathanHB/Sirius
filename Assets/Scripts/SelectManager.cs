@@ -29,6 +29,7 @@ public class SelectManager : MonoBehaviour
     void Update()
     {
 
+        isWerewolf = player.tag=="Werewolf";
 
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;

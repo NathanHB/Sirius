@@ -26,12 +26,10 @@ public class handle_ui_ingame : MonoBehaviour
         PauseSettingsUi.SetActive(false);
 
         motor = player.GetComponent<PlayerMotor>();
-        //rb = player.GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-       // Debug.Log(gamePaused+rb.GetInstanceID().ToString());
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gamePaused)
@@ -62,8 +60,7 @@ public class handle_ui_ingame : MonoBehaviour
     }
 
     void PauseGame()
-    {
-        
+    {   
         //rb.constraints = RigidbodyConstraints.FreezeAll;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;

@@ -72,6 +72,8 @@
           <e p="switch_scene.cs" t="Include" />
           <e p="timer.cs" t="Include" />
           <e p="villager.cs" t="Include" />
+          <e p="votebutton.cs" t="Include" />
+          <e p="voting.cs" t="Include" />
           <e p="werewolfActions.cs" t="Include" />
           <e p="WolfAttack.cs" t="Include" />
         </e>

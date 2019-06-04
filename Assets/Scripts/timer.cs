@@ -21,7 +21,7 @@ public class timer : NetworkBehaviour
 
     private static int dayDuration = 10;
     private static int nightDuration = 10;
-    private static int votingProcessDuration = 5;
+    private static int votingProcessDuration = 30;
     // IMPORTANT NOTE : dayDuration includes votingProcessDuration
     
 
@@ -70,6 +70,7 @@ public class timer : NetworkBehaviour
                 mTimer = 0;
                 start = true;
                 state = "dayNotVoting";
+                Debug.Log("we start the game");
             }  
             else
                 return;
@@ -89,6 +90,7 @@ public class timer : NetworkBehaviour
             isDay = false;
             state = "night";
             mTimer = 0;
+            Debug.Log("we switch to night");
         } 
         else if (state=="night" && mTimer > nightDuration)//switch to day voting if end of night
         {
@@ -98,11 +100,13 @@ public class timer : NetworkBehaviour
             isVoting = true;
             state = "dayVoting";
             mTimer = 0;
+            Debug.Log("we switch to vote");
         }
         else if(state == "dayVoting" && mTimer > votingProcessDuration)
         {
             state = "dayNotVoting";
             isVoting = false;
+            Debug.Log("we switch to day no voting");
         }
         }
 

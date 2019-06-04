@@ -11,12 +11,35 @@ public class gameMaster : NetworkBehaviour
     private const string playerNamePrefix = "player ";
     
     private static Dictionary<string, (PlayerManager, string)> players = new Dictionary<string, (PlayerManager, string)>();
+    
+    private static int[] votes = new int[getPlayersNumber()]; // We make a list in which the
+                                                                           // index is the player index and the value the number of votes for him
 
     [SerializeField] private static int wolfneeded = 1;
     private static int playersNeeded = 2;
     private static int wolfCount = 0;
     private static bool isOver = false;
     private static string winner;
+
+
+    public static void cmdVote(int playerIndex)
+    {
+        if (playerIndex == -1) return;
+        votes[playerIndex] += 1;
+    }
+
+    public static void cmdEndVote()
+    {
+        int indexMax = !votes.Any() ? -1 :
+            votes
+                .Select( (value, index) => new { Value = value, Index = index } )
+                .Aggregate( (a, b) => (a.Value > b.Value) ? a : b )
+                .Index;
+
+        string player = playerNamePrefix + (indexMax + 7);
+        CmdUnregisterPlayer(player);
+        GetPlayer(player).IsDead = true;
+    }
 
 
     public static void CmdRegisterPlayer(string netID, PlayerManager player)

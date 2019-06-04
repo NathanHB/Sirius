@@ -11,7 +11,6 @@ public class handle_ui_ingame : MonoBehaviour
     [SerializeField] private GameObject PauseSettingsUi;
     [SerializeField] private GameObject player;
 
-    [SerializeField] private Behaviour controls;
     //private static Rigidbody rb;
     private static PlayerMotor motor;
     private void Start()
@@ -54,7 +53,6 @@ public class handle_ui_ingame : MonoBehaviour
         PauseMenuUi.SetActive(false); 
         PauseSettingsUi.SetActive(false);
         Cursor.visible = false;
-        controls.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         gamePaused = false;
     }
@@ -65,7 +63,6 @@ public class handle_ui_ingame : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         PauseMenuUi.SetActive(true);
-        controls.enabled = false;
         gamePaused = true;
     }
 
